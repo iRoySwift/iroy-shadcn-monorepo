@@ -1,3 +1,3 @@
-# `@workspace/eslint-config`
+# `@iroy/eslint`
 
 Shared eslint configuration for the workspace.
