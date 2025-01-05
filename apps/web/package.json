@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@iroy/web",
   "version": "0.0.1",
   "type": "module",
   "private": true,
@@ -12,17 +12,17 @@
   "dependencies": {
     "@iroy/ui": "workspace:*",
     "lucide-react": "catalog:",
-    "next-themes": "catalog:",
     "next": "catalog:",
+    "next-themes": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@iroy/eslint": "workspace:^",
+    "@iroy/typescript": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@iroy/eslint": "workspace:^",
-    "@iroy/typescript": "workspace:*",
     "postcss": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"

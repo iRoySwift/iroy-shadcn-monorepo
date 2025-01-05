@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@iroy/ui/components",
-    "utils": "@iroy/ui/lib/utils",
+    "components": "@/components",
     "hooks": "@iroy/ui/hooks",
     "lib": "@iroy/ui/lib",
+    "utils": "@iroy/ui/lib/utils",
     "ui": "@iroy/ui/components"
   }
 }
