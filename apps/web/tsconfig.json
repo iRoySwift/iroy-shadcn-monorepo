@@ -8,6 +8,12 @@
       ],
       "@iroy/ui/*": [
         "../../packages/common/ui/src/*"
+      ],
+      "@iroy/utils/*": [
+        "../../packages/common/utils/src/*"
+      ],
+      "@iroy/network/*": [
+        "../../packages/common/network/src/*"
       ]
     },
     "plugins": [

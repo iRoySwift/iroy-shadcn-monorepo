@@ -1,0 +1,22 @@
+{
+  "name": "@iroy/utils",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "4.1.0",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@iroy/eslint": "workspace:*",
+    "@iroy/typescript": "workspace:*"
+  },
+  "exports": {
+    "./date-fns": "./src/date-fns/index.ts",
+    "./lodash-es": "./src/lodash-es/index.ts"
+  }
+}

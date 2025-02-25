@@ -10,8 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iroy/network": "workspace:^",
     "@iroy/ui": "workspace:*",
-    "lucide-react": "catalog:",
+    "@iroy/utils": "workspace:*",
     "next": "catalog:",
     "next-themes": "catalog:",
     "react": "catalog:",
@@ -20,11 +21,9 @@
   "devDependencies": {
     "@iroy/eslint": "workspace:^",
     "@iroy/typescript": "workspace:*",
-    "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "postcss": "catalog:",
-    "tailwindcss": "catalog:",
-    "typescript": "catalog:"
+    "tailwindcss": "catalog:"
   }
 }

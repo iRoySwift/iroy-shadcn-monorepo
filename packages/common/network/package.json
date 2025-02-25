@@ -1,0 +1,25 @@
+{
+  "name": "@iroy/network",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "file-saver": "^2.0.5",
+    "js-cookie": "^3.0.5",
+    "qs": "^6.13.1"
+  },
+  "devDependencies": {
+    "@iroy/eslint": "workspace:^",
+    "@iroy/typescript": "workspace:^",
+    "@types/file-saver": "^2.0.7",
+    "@types/js-cookie": "^3.0.6",
+    "@types/qs": "^6.9.17"
+  },
+  "exports": {
+    "./axios": "./src/axios/index.ts"
+  }
+}
