@@ -25,6 +25,13 @@ pnpm dlx shadcn@latest add accordion alert alert-dialog aspect-ratio avatar badg
 
 This will place the ui components in the `packages/ui/src/components` directory.
 
+## update shadcn ui
+
+```bash
+cd ./packages/common/ui
+pnpm up "@radix-ui/*" cmdk lucide-react recharts tailwind-merge clsx --latest
+```
+
 ## Tailwind
 
 Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.

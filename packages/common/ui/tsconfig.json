@@ -2,9 +2,12 @@
   "extends": "@iroy/typescript/react-library.json",
   "compilerOptions": {
     //"outDir": "dist"
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
-      "@iroy/ui/*": ["./src/*"]
+      "@iroy/ui/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["."],
