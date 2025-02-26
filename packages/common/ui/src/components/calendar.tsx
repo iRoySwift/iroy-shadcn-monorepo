@@ -4,8 +4,8 @@ import * as React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/button"
+import { cn } from "@iroy/ui/lib/utils"
+import { buttonVariants } from "@iroy/ui/components/button"
 
 function Calendar({
   className,

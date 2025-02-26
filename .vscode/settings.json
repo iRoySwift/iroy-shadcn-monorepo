@@ -1,13 +1,4 @@
 {
-    "editor.indentSize": "tabSize",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "files.autoSave": "onFocusChange",
-    "files.autoSaveDelay": 500,
-    "files.eol": "\n",
-    "files.trimTrailingWhitespace": true
-}
-{
   "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[javascript|react]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

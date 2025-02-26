@@ -1,35 +1,10 @@
 {
   "extends": "@iroy/typescript/nextjs.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@iroy/ui/*": [
-        "../../packages/common/ui/src/*"
-      ],
-      "@iroy/utils/*": [
-        "../../packages/common/utils/src/*"
-      ],
-      "@iroy/network/*": [
-        "../../packages/common/network/src/*"
-      ]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+      "@/*": ["./*"]
+    }
   },
-  "include": [
-    "next-env.d.ts",
-    "next.config.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

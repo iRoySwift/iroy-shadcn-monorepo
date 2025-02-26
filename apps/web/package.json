@@ -1,7 +1,6 @@
 {
   "name": "@iroy/web",
-  "version": "0.0.1",
-  "type": "module",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -10,20 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@iroy/network": "workspace:^",
-    "@iroy/ui": "workspace:*",
-    "@iroy/utils": "workspace:*",
+    "@iroy/ui": "workspace:^",
     "next": "catalog:",
-    "next-themes": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@iroy/eslint": "workspace:^",
-    "@iroy/typescript": "workspace:*",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "postcss": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
     "tailwindcss": "catalog:"
   }
 }

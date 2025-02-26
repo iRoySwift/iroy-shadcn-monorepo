@@ -4,16 +4,17 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "./../../packages/common/ui/tailwind.config.ts",
-    "css": "./../../packages/common/ui/src/styles/globals.css",
-    "baseColor": "zinc",
-    "cssVariables": true
+    "config": "",
+    "css": "@iroy/ui/globals",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/components",
-    "hooks": "@/hooks",
-    "lib": "@/lib",
+    "components": "@iroy/ui/components",
+    "hooks": "@iroy/ui/hooks",
+    "lib": "@iroy/ui/lib",
     "utils": "@iroy/ui/lib/utils",
     "ui": "@iroy/ui/components"
   }

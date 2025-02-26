@@ -1,1 +1,3 @@
-export { default } from "@iroy/ui/postcss.config";
+import config from "@iroy/ui/postcss";
+
+export default config;

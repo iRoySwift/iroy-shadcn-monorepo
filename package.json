@@ -8,12 +8,14 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "dependencies": {
+  },
   "devDependencies": {
     "@iroy/eslint": "workspace:^",
     "@iroy/typescript": "workspace:^",
     "@types/node": "catalog:",
-    "autoprefixer": "catalog:",
-    "postcss": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "prettier": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"

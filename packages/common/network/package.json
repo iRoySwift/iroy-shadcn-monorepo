@@ -13,8 +13,6 @@
     "qs": "^6.13.1"
   },
   "devDependencies": {
-    "@iroy/eslint": "workspace:^",
-    "@iroy/typescript": "workspace:^",
     "@types/file-saver": "^2.0.7",
     "@types/js-cookie": "^3.0.6",
     "@types/qs": "^6.9.17"

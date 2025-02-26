@@ -11,9 +11,7 @@
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12",
-    "@iroy/eslint": "workspace:*",
-    "@iroy/typescript": "workspace:*"
+    "@types/lodash-es": "^4.17.12"
   },
   "exports": {
     "./date-fns": "./src/date-fns/index.ts",
