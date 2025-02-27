@@ -1,3 +1,3 @@
-import eslintConfig from "@iroy/eslint/next";
+import { eslintConfig } from "@iroy/eslint/next";
 
 export default eslintConfig;

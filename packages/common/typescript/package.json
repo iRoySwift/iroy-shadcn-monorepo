@@ -5,5 +5,11 @@
   "license": "PROPRIETARY",
   "publishConfig": {
     "access": "public"
+  },
+  "exports": {
+    "./base": "./base.json",
+    "./esnext": "./esnext.json",
+    "./next": "./next.json",
+    "./react-library": "./react-library.json"
   }
 }

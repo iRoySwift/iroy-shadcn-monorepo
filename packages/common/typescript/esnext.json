@@ -3,7 +3,7 @@
   "display": "ESNext",
   "extends": "./base.json",
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "node"
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   }
 }

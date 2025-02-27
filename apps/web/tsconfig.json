@@ -1,5 +1,5 @@
 {
-  "extends": "@iroy/typescript/nextjs.json",
+  "extends": "@iroy/typescript/next",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]

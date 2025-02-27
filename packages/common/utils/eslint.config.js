@@ -1,4 +1,3 @@
-import { config } from "@iroy/eslint/react-internal"
+import { eslintConfig } from "@iroy/eslint/next";
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default eslintConfig;

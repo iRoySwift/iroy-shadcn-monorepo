@@ -275,10 +275,10 @@ importers:
         version: 3.24.2
     devDependencies:
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: 'catalog:'
         version: 4.0.9
       tailwindcss:
-        specifier: ^4
+        specifier: 'catalog:'
         version: 4.0.9
 
   packages/common/utils:

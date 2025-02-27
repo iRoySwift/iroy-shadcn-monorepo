@@ -1,8 +1,10 @@
 {
-  "extends": "@iroy/typescript/esnext.json",
+  "extends": "@iroy/typescript/next",
   "compilerOptions": {
-    //"outDir": "dist"
     "baseUrl": ".",
+    "paths": {
+      "@iroy/network/*": ["./src/*"]
+    }
   },
   "include": ["."],
   "exclude": ["node_modules", "dist"]

@@ -1,4 +1,3 @@
-import { eslintConfig } from "@iroy/eslint/next-js";
+import { eslintConfig } from "@iroy/eslint/next";
 
-/** @type {import("eslint").Linter.Config} */
 export default eslintConfig;
