@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iroy/theme": "workspace:^",
     "@iroy/ui": "workspace:^",
     "next": "catalog:",
     "react": "catalog:",

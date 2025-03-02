@@ -9,9 +9,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec rm -rf node_modules"
   },
-  "dependencies": {},
   "devDependencies": {
     "@iroy/eslint": "workspace:^",
+    "@iroy/theme": "workspace:^",
     "@iroy/typescript": "workspace:^",
     "@types/node": "catalog:",
     "@types/react": "catalog:",

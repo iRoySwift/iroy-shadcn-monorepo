@@ -65,6 +65,7 @@
     "./postcss": "./postcss.config.js",
     "./lib/*": "./src/lib/*.ts",
     "./components/*": "./src/components/*.tsx",
-    "./hooks/*": "./src/hooks/*.ts"
+    "./hooks/*": "./src/hooks/*.ts",
+    "./icons": "./src/icons/index.tsx"
   }
 }

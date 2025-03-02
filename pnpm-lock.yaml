@@ -47,6 +47,9 @@ importers:
       '@iroy/eslint':
         specifier: workspace:^
         version: link:packages/common/eslint
+      '@iroy/theme':
+        specifier: workspace:^
+        version: link:packages/common/theme
       '@iroy/typescript':
         specifier: workspace:^
         version: link:packages/common/typescript
@@ -71,6 +74,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@iroy/theme':
+        specifier: workspace:^
+        version: link:../../packages/common/theme
       '@iroy/ui':
         specifier: workspace:^
         version: link:../../packages/common/ui
@@ -127,6 +133,22 @@ importers:
       '@types/qs':
         specifier: ^6.9.17
         version: 6.9.18
+
+  packages/common/theme:
+    dependencies:
+      next-themes:
+        specifier: ^0.4.4
+        version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+    devDependencies:
+      '@iroy/ui':
+        specifier: workspace:^
+        version: link:../ui
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.0.9
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@4.0.9)
 
   packages/common/typescript: {}
 

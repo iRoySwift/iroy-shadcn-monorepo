@@ -1,0 +1,24 @@
+{
+  "name": "@iroy/theme",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": "./src/index.ts",
+    "./index.css": "./src/index.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "catalog:",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "dependencies": {
+    "@iroy/ui": "workspace:^",
+    "next-themes": "^0.4.4"
+  }
+}
