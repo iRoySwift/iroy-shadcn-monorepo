@@ -7,6 +7,7 @@ import {
 } from "@iroy/ui/components/avatar";
 import { Button } from "@iroy/ui/components/button";
 import {
+  Command,
   CommandInput,
   CommandList,
   CommandEmpty,
@@ -21,7 +22,6 @@ import {
 } from "@iroy/ui/components/popover";
 import {
   ChevronsUpDown,
-  Command,
   CheckIcon,
   PlusCircleIcon,
   ChevronDownIcon,
@@ -197,9 +197,7 @@ function UserCombobox({
           {selectedUser ? (
             <div className="flex items-center gap-2">
               <Avatar className="size-5">
-                <AvatarImage
-                  src={`https://github.com/${selectedUser.username}.png`}
-                />
+                <AvatarImage src={`/avatars/${selectedUser.username}.png`} />
                 <AvatarFallback>{selectedUser.username[0]}</AvatarFallback>
               </Avatar>
               {selectedUser.username}
@@ -225,9 +223,7 @@ function UserCombobox({
                     setOpen(false);
                   }}>
                   <Avatar className="size-5">
-                    <AvatarImage
-                      src={`https://github.com/${user.username}.png`}
-                    />
+                    <AvatarImage src={`/avatars/${user.username}.png`} />
                     <AvatarFallback>{user.username[0]}</AvatarFallback>
                   </Avatar>
                   {user.username}

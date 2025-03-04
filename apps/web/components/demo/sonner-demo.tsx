@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@iroy/ui/components/button";
-import { toast } from "@iroy/ui/components/sonner";
+import { toast } from "@iroy/ui";
 
 export function SonnerDemo() {
   return (

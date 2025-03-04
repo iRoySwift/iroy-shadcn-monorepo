@@ -32,8 +32,9 @@ import { cn } from "@iroy/ui/lib/utils";
 
 import { Calendar } from "@iroy/ui/components/calendar";
 import { format } from "@iroy/utils/date-fns";
-import { toast, z, zodResolver } from "@iroy/ui";
+import { toast } from "@iroy/ui";
 import { useForm } from "@iroy/hooks/react-hook-form";
+import { z, zodResolver } from "@iroy/ui/zod";
 
 const items = [
   {

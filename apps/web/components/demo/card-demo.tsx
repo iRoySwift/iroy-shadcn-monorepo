@@ -92,16 +92,16 @@ export function CardDemo() {
         <CardFooter>
           <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage src="/avatars/shadcn.png" alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
+              <AvatarImage src="/avatars/leerob.png" alt="@leerob" />
               <AvatarFallback>LR</AvatarFallback>
             </Avatar>
             <Avatar>
               <AvatarImage
-                src="https://github.com/evilrabbit.png"
+                src="/avatars/evilrabbit.png"
                 alt="@evilrabbit"
               />
               <AvatarFallback>ER</AvatarFallback>

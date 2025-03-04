@@ -5,9 +5,9 @@ import {
   InputOTPGroup,
   InputOTPSlot,
   InputOTPSeparator,
-  REGEXP_ONLY_DIGITS,
 } from "@iroy/ui/components/input-otp";
 import { Label } from "@iroy/ui/components/label";
+import { REGEXP_ONLY_DIGITS } from "@iroy/ui";
 import * as React from "react";
 
 export function InputOTPDemo() {

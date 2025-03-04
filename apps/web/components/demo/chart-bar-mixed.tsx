@@ -15,7 +15,7 @@ import {
   ChartTooltipContent,
 } from "@iroy/ui/components/chart";
 import { TrendingUp } from "@iroy/ui/icons";
-import { Bar, BarChart, XAxis, YAxis } from "recharts";
+import { BarChart, YAxis, XAxis, Bar } from "@iroy/ui/recharts";
 
 export const description = "A mixed bar chart";
 

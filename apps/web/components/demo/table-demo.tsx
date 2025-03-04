@@ -1,4 +1,5 @@
 import {
+  Table,
   TableCaption,
   TableHeader,
   TableRow,
@@ -7,7 +8,6 @@ import {
   TableCell,
   TableFooter,
 } from "@iroy/ui/components/table";
-import { Table } from "@iroy/ui/icons";
 
 const invoices = [
   {

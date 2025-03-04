@@ -198,7 +198,7 @@ function DropdownMenuWithAvatar() {
           variant="outline"
           className="h-12 justify-start px-2 md:max-w-[200px]">
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="Shadcn" />
+            <AvatarImage src="/avatars/shadcn.png" alt="Shadcn" />
             <AvatarFallback className="rounded-lg">CN</AvatarFallback>
           </Avatar>
           <div className="grid flex-1 text-left text-sm leading-tight">
@@ -216,7 +216,7 @@ function DropdownMenuWithAvatar() {
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="Shadcn" />
+              <AvatarImage src="/avatars/shadcn.png" alt="Shadcn" />
               <AvatarFallback className="rounded-lg">CN</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
@@ -267,7 +267,7 @@ function DropdownMenuAvatarOnly() {
           variant="outline"
           className="size-8 rounded-full border-none p-0">
           <Avatar>
-            <AvatarImage src="https://github.com/leerob.png" alt="leerob" />
+            <AvatarImage src="/avatars/leerob.png" alt="leerob" />
             <AvatarFallback className="rounded-lg">LR</AvatarFallback>
           </Avatar>
         </Button>
@@ -278,7 +278,7 @@ function DropdownMenuAvatarOnly() {
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar>
-              <AvatarImage src="https://github.com/leerob.png" alt="leerob" />
+              <AvatarImage src="/avatars/leerob.png" alt="leerob" />
               <AvatarFallback className="rounded-lg">LR</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">

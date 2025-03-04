@@ -1,6 +1,6 @@
 "use client";
 
-import { Area, AreaChart, CartesianGrid, XAxis } from "@iroy/ui";
+import { Area, AreaChart, CartesianGrid, XAxis } from "@iroy/ui/recharts";
 import {
   Card,
   CardHeader,

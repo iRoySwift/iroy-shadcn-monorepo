@@ -4,6 +4,7 @@ import "@iroy/ui/globals";
 import "@iroy/theme/index.css";
 import { META_THEME_COLORS, ThemeProvider } from "@iroy/theme";
 import { siteConfig } from "@/site";
+import { Toaster } from "@iroy/ui/components/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -95,6 +96,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           {children}
+          <Toaster />
+          {/* <Analytics /> */}
         </ThemeProvider>
       </body>
     </html>

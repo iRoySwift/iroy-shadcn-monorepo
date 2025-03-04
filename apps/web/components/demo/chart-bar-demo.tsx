@@ -15,7 +15,7 @@ import {
   ChartTooltipContent,
 } from "@iroy/ui/components/chart";
 import { TrendingUp } from "@iroy/ui/icons";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis } from "@iroy/ui/recharts";
 
 export const description = "A multiple bar chart";
 

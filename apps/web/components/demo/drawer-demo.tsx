@@ -12,8 +12,8 @@ import {
   DrawerClose,
 } from "@iroy/ui/components/drawer";
 import { Minus, Plus } from "@iroy/ui/icons";
+import { BarChart, ResponsiveContainer, Bar } from "@iroy/ui/recharts";
 import * as React from "react";
-import { Bar, BarChart, ResponsiveContainer } from "recharts";
 
 const data = [
   {

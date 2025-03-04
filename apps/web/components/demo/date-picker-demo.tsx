@@ -1,5 +1,6 @@
 "use client";
 
+import { DateRange } from "@iroy/ui";
 import { Button } from "@iroy/ui/components/button";
 import { Calendar } from "@iroy/ui/components/calendar";
 import {
@@ -9,7 +10,7 @@ import {
 } from "@iroy/ui/components/popover";
 import { CalendarIcon } from "@iroy/ui/icons";
 import { cn } from "@iroy/ui/lib/utils";
-import { format } from "@iroy/utils/date-fns";
+import { addDays, format } from "@iroy/utils/date-fns";
 import * as React from "react";
 
 export function DatePickerDemo() {

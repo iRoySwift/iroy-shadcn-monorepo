@@ -20,7 +20,7 @@ export function HoverCardDemo() {
       <HoverCardContent className="w-80" side="right">
         <div className="flex justify-between gap-4">
           <Avatar>
-            <AvatarImage src="https://github.com/vercel.png" />
+            <AvatarImage src="/avatars/vercel.png" />
             <AvatarFallback>VC</AvatarFallback>
           </Avatar>
           <div className="flex flex-col gap-1">

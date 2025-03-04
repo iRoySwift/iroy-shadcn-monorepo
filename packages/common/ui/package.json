@@ -37,8 +37,8 @@
     "@radix-ui/react-tooltip": "^1.1.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "1.0.0",
-    "date-fns": "4.1.0",
+    "cmdk": "^1.0.4",
+    "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.2",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.476.0",
@@ -67,6 +67,8 @@
     "./lib/*": "./src/lib/*.ts",
     "./components/*": "./src/components/*.tsx",
     "./hooks/*": "./src/hooks/*.ts",
-    "./icons": "./src/icons/index.tsx"
+    "./icons": "./src/icons/index.tsx",
+    "./recharts": "./src/recharts.ts",
+    "./zod": "./src/zod.ts"
   }
 }
