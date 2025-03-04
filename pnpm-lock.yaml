@@ -74,12 +74,18 @@ importers:
 
   apps/web:
     dependencies:
+      '@iroy/hooks':
+        specifier: workspace:^
+        version: link:../../packages/common/hooks
       '@iroy/theme':
         specifier: workspace:^
         version: link:../../packages/common/theme
       '@iroy/ui':
         specifier: workspace:^
         version: link:../../packages/common/ui
+      '@iroy/utils':
+        specifier: workspace:^
+        version: link:../../packages/common/utils
       next:
         specifier: 'catalog:'
         version: 15.2.0-canary.74(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -109,6 +115,12 @@ importers:
         specifier: 15.2.0-canary.74
         version: 15.2.0-canary.74(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
 
+  packages/common/hooks:
+    dependencies:
+      react-hook-form:
+        specifier: ^7.54.2
+        version: 7.54.2(react@19.0.0)
+
   packages/common/network:
     dependencies:
       axios:
@@ -136,13 +148,13 @@ importers:
 
   packages/common/theme:
     dependencies:
+      '@iroy/ui':
+        specifier: workspace:^
+        version: link:../ui
       next-themes:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
-      '@iroy/ui':
-        specifier: workspace:^
-        version: link:../ui
       tailwindcss:
         specifier: 'catalog:'
         version: 4.0.9

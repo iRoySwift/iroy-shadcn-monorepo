@@ -61,6 +61,7 @@
     "tailwindcss": "catalog:"
   },
   "exports": {
+    ".": "./src/index.ts",
     "./globals": "./src/styles/globals.css",
     "./postcss": "./postcss.config.js",
     "./lib/*": "./src/lib/*.ts",

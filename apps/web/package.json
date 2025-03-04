@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iroy/hooks": "workspace:^",
     "@iroy/theme": "workspace:^",
     "@iroy/ui": "workspace:^",
+    "@iroy/utils": "workspace:^",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
