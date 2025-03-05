@@ -15,7 +15,7 @@ import {
   ChartTooltipContent,
 } from "@iroy/ui/components/chart";
 import { TrendingUp } from "@iroy/ui/icons";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis } from "@iroy/ui/recharts";
 
 export const description = "A multiple line chart";
 

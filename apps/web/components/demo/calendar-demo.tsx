@@ -1,8 +1,9 @@
 "use client";
 
-import { Calendar, DateRange } from "@iroy/ui/components/calendar";
+import { Calendar } from "@iroy/ui/components/calendar";
 import * as React from "react";
 import { addDays } from "@iroy/utils/date-fns";
+import { DateRange } from "@iroy/ui";
 
 export function CalendarDemo() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());

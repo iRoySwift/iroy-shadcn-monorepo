@@ -3,20 +3,11 @@
 import {
   AudioWaveform,
   BookOpen,
-  Bot,
-  Calendar,
-  ChevronDown,
   ChevronRightIcon,
-  ChevronUp,
   Command,
   GalleryVerticalEnd,
-  Home,
-  Inbox,
   Search,
-  Settings,
-  Settings2,
   SquareTerminal,
-  User2,
 } from "@iroy/ui/icons";
 
 import {
@@ -83,6 +74,10 @@ const data = {
       icon: SquareTerminal,
       isActive: true,
       items: [
+        {
+          title: "Home1",
+          url: "/",
+        },
         {
           title: "Demo",
           url: "/demo",

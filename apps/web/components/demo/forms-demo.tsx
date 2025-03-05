@@ -23,7 +23,6 @@ import {
 } from "@iroy/ui/components/select";
 import { Textarea } from "@iroy/ui/components/textarea";
 import * as React from "react";
-// import { useTheme } from "next-themes"
 
 const plans = [
   {
