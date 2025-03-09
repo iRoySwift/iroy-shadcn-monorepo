@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@iroy/ui/globals";
-import "@iroy/theme/index.css";
 import { META_THEME_COLORS, ThemeProvider } from "@iroy/theme";
 import { siteConfig } from "@/site";
 import { Toaster } from "@iroy/ui/components/sonner";
+import "@/style/index.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

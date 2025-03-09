@@ -13,6 +13,7 @@
     "@iroy/theme": "workspace:^",
     "@iroy/ui": "workspace:^",
     "@iroy/utils": "workspace:^",
+    "@tanstack/react-table": "^8.21.2",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"

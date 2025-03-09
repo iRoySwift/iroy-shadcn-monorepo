@@ -11,7 +11,8 @@
   "license": "ISC",
   "exports": {
     ".": "./src/index.ts",
-    "./index.css": "./src/index.css"
+    "./index.css": "./src/index.css",
+    "./colors": "./src/colors/index.ts"
   },
   "devDependencies": {
     "tailwindcss": "catalog:",
