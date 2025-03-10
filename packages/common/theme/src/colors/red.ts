@@ -1,48 +1,4 @@
 const red = {
-  inlineColors: {
-    light: {
-      background: "white",
-      foreground: "red-950",
-      card: "white",
-      "card-foreground": "red-950",
-      popover: "white",
-      "popover-foreground": "red-950",
-      primary: "red-900",
-      "primary-foreground": "red-50",
-      secondary: "red-100",
-      "secondary-foreground": "red-900",
-      muted: "red-100",
-      "muted-foreground": "red-500",
-      accent: "red-100",
-      "accent-foreground": "red-900",
-      destructive: "red-500",
-      "destructive-foreground": "red-50",
-      border: "red-200",
-      input: "red-200",
-      ring: "red-950",
-    },
-    dark: {
-      background: "red-950",
-      foreground: "red-50",
-      card: "red-950",
-      "card-foreground": "red-50",
-      popover: "red-950",
-      "popover-foreground": "red-50",
-      primary: "red-50",
-      "primary-foreground": "red-900",
-      secondary: "red-800",
-      "secondary-foreground": "red-50",
-      muted: "red-800",
-      "muted-foreground": "red-400",
-      accent: "red-800",
-      "accent-foreground": "red-50",
-      destructive: "red-900",
-      "destructive-foreground": "red-50",
-      border: "red-800",
-      input: "red-800",
-      ring: "red-300",
-    },
-  },
   cssVars: {
     light: {
       background: "0 0% 100%",
@@ -100,31 +56,31 @@ const red = {
   },
   cssVarsV4: {
     light: {
-      background: "oklch(1 0 0)", // --color-white
-      foreground: "oklch(0.26 0.09 26)", // --color-red-950
-      card: "oklch(1 0 0)", // --color-white
-      card_foreground: "oklch(0.26 0.09 26)", // --color-red-950
-      popover: "oklch(1 0 0)", // --color-white
-      "popover-foreground": "oklch(0.26 0.09 26)", // --color-red-950
-      primary: "oklch(0.40 0.13 26)", // --color-red-900
-      "primary-foreground": "oklch(0.97 0.01 17)", // --color-red-50
-      secondary: "oklch(0.94 0.03 18)", // --color-red-100
-      "secondary-foreground": "oklch(0.40 0.13 26)", // --color-red-900
-      muted: "oklch(0.94 0.03 18)", // --color-red-100
-      "muted-foreground": "oklch(0.64 0.21 25)", // --color-red-500
-      accent: "oklch(0.94 0.03 18)", // --color-red-100
-      "accent-foreground": "oklch(0.40 0.13 26)", // --color-red-900
-      destructive: "oklch(0.58 0.22 27)", // --color-red-600
-      "destructive-foreground": "oklch(0.58 0.22 27)", // --color-red-600
-      border: "oklch(0.88 0.06 18)", // --color-red-200
-      input: "oklch(0.88 0.06 18)", // --color-red-200
-      ring: "oklch(0.81 0.10 20)", // --color-red-300
-      "chart-1": "oklch(0.646 0.222 41.116)", // --color-orange-600
-      "chart-2": "oklch(0.6 0.118 184.704)", // --color-teal-600
-      "chart-3": "oklch(0.398 0.07 227.392)", // --color-cyan-900
-      "chart-4": "oklch(0.828 0.189 84.429)", // --color-amber-400
-      "chart-5": "oklch(0.769 0.188 70.08)", // --color-amber-500
-      radius: "0.625rem", // Not a color
+      background: "oklch(1 0 0)",
+      foreground: "oklch(0.145 0 0)",
+      card: "oklch(1 0 0)",
+      "card-foreground": "oklch(0.145 0 0)",
+      popover: "oklch(1 0 0)",
+      "popover-foreground": "oklch(0.145 0 0)",
+      primary: "oklch(0.577 0.215 27.319)",
+      "primary-foreground": "oklch(0.971 0.013 17.376)",
+      secondary: "oklch(0.97 0 0)",
+      "secondary-foreground": "oklch(0.204 0 0)",
+      muted: "oklch(0.97 0 0)",
+      "muted-foreground": "oklch(0.556 0 0)",
+      accent: "oklch(0.97 0 0)",
+      "accent-foreground": "oklch(0.204 0 0)",
+      destructive: "oklch(0.637 0.208 25.326)",
+      "destructive-foreground": "oklch(0.985 0 0)",
+      border: "oklch(0.922 0 0)",
+      input: "oklch(0.922 0 0)",
+      ring: "oklch(0.577 0.215 27.319)",
+      radius: "0.4rem",
+      "chart-1": "oklch(0.677 0.157 35.19)",
+      "chart-2": "oklch(0.631 0.101 183.491)",
+      "chart-3": "oklch(0.379 0.044 225.539)",
+      "chart-4": "oklch(0.834 0.119 88.146)",
+      "chart-5": "oklch(0.783 0.126 58.749)",
       sidebar: "oklch(0.97 0.01 17)", // --color-red-50
       "sidebar-foreground": "oklch(0.26 0.09 26)", // --color-red-950
       "sidebar-primary": "oklch(0.40 0.13 26)", // --color-red-900
@@ -135,38 +91,38 @@ const red = {
       "sidebar-ring": "oklch(0.81 0.10 20)", // --color-red-300
     },
     dark: {
-      background: "oklch(0.26 0.09 26)", // --color-red-950
-      foreground: "oklch(0.97 0.01 17)", // --color-red-50
-      card: "oklch(0.26 0.09 26)", // --color-red-950
-      "card-foreground": "oklch(0.97 0.01 17)", // --color-red-50
-      popover: "oklch(0.26 0.09 26)", // --color-red-950
-      "popover-foreground": "oklch(0.97 0.01 17)", // --color-red-50
-      primary: "oklch(0.97 0.01 17)", // --color-red-50
-      "primary-foreground": "oklch(0.40 0.13 26)", // --color-red-900
-      secondary: "oklch(0.44 0.16 27)", // --color-red-800
-      "secondary-foreground": "oklch(0.97 0.01 17)", // --color-red-50
-      muted: "oklch(0.44 0.16 27)", // --color-red-800
-      "muted-foreground": "oklch(0.71 0.17 22)", // --color-red-400
-      accent: "oklch(0.44 0.16 27)", // --color-red-800
-      "accent-foreground": "oklch(0.97 0.01 17)", // --color-red-50
-      destructive: "oklch(0.396 0.141 25.723)", // --color-red-900
-      "destructive-foreground": "oklch(0.637 0.237 25.331)", // --color-red-500
-      border: "oklch(0.44 0.16 27)", // --color-red-800
-      input: "oklch(0.44 0.16 27)", // --color-red-800
-      ring: "oklch(0.442 0.017 285.786)", // --color-red-600
-      "chart-1": "oklch(0.488 0.243 264.376)", // --color-blue-700
-      "chart-2": "oklch(0.696 0.17 162.48)", // --color-emerald-500
-      "chart-3": "oklch(0.769 0.188 70.08)", // --color-amber-500
-      "chart-4": "oklch(0.627 0.265 303.9)", // --color-purple-500
-      "chart-5": "oklch(0.645 0.246 16.439)", // --color-rose-500
+      background: "oklch(0.145 0 0)",
+      foreground: "oklch(0.985 0 0)",
+      card: "oklch(0.145 0 0)",
+      "card-foreground": "oklch(0.985 0 0)",
+      popover: "oklch(0.145 0 0)",
+      "popover-foreground": "oklch(0.985 0 0)",
+      primary: "oklch(0.577 0.215 27.319)",
+      "primary-foreground": "oklch(0.971 0.013 17.376)",
+      secondary: "oklch(0.269 0 0)",
+      "secondary-foreground": "oklch(0.985 0 0)",
+      muted: "oklch(0.269 0 0)",
+      "muted-foreground": "oklch(0.715 0 0)",
+      accent: "oklch(0.269 0 0)",
+      "accent-foreground": "oklch(0.985 0 0)",
+      destructive: "oklch(0.396 0.133 25.721)",
+      "destructive-foreground": "oklch(0.985 0 0)",
+      border: "oklch(0.269 0 0)",
+      input: "oklch(0.269 0 0)",
+      ring: "oklch(0.577 0.215 27.319)",
+      "chart-1": "oklch(0.529 0.193 262.129)",
+      "chart-2": "oklch(0.698 0.134 165.463)",
+      "chart-3": "oklch(0.723 0.15 60.631)",
+      "chart-4": "oklch(0.619 0.204 312.728)",
+      "chart-5": "oklch(0.612 0.209 6.386)",
       sidebar: "oklch(0.40 0.13 26)", // --color-red-900
       "sidebar-foreground": "oklch(0.97 0.01 17)", // --color-red-50
-      "sidebar-primary": "oklch(0.488 0.243 264.376)", // --color-blue-700
+      "sidebar-primary": "oklch(0.51 0.19 28)", // --color-red-700
       "sidebar-primary-foreground": "oklch(0.97 0.01 17)", // --color-red-50
       "sidebar-accent": "oklch(0.44 0.16 27)", // --color-red-800
       "sidebar-accent-foreground": "oklch(0.97 0.01 17)", // --color-red-50
       "sidebar-border": "oklch(0.44 0.16 27)", // --color-red-800
-      "sidebar-ring": "oklch(0.442 0.017 285.786)", // --color-red-600
+      "sidebar-ring": "oklch(0.58 0.22 27)", // --color-red-600
     },
   },
   inlineColorsTemplate:

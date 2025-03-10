@@ -13,7 +13,8 @@ interface Props {}
 const Customizer: React.FC<Props> = () => {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme: setMode, resolvedTheme: mode = "light" } = useTheme();
-  const { radius, setRadius, theme, setTheme } = useThemeStore();
+  const { radius, setRadius, theme, setTheme, style, setThemeConfig } =
+    useThemeStore();
 
   React.useEffect(() => {
     setMounted(true);
@@ -29,7 +30,13 @@ const Customizer: React.FC<Props> = () => {
             Customize your components colors.
           </div>
         </div>
-        <Button variant="ghost" size="icon" className="ml-auto">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="ml-auto"
+          onClick={() => {
+            setThemeConfig("new-york", "zinc", 0.5);
+          }}>
           <Repeat />
           <span className="sr-only">Reset</span>
         </Button>
