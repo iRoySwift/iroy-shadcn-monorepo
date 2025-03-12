@@ -1,5 +1,6 @@
 @import "@iroy/ui/globals";
 @import "@iroy/theme/index.css";
+@import "./mdx.css";
 
 @layer utilities {
   .border-grid {

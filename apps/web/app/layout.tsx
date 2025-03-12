@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { META_THEME_COLORS, ThemeProvider } from "@iroy/theme";
 import { siteConfig } from "@/site";
 import { Toaster } from "@iroy/ui/components/sonner";
-import "@/style/index.css";
+import "@/styles/index.css";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -96,7 +97,7 @@ export default function RootLayout({
           disableTransitionOnChange>
           {children}
           <Toaster />
-          {/* <Analytics /> */}
+          <TailwindIndicator />
         </ThemeProvider>
       </body>
     </html>
