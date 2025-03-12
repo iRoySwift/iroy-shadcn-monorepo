@@ -156,8 +156,8 @@ function CustomizerCode() {
               "accent",
               "destructive",
             ].map(prefix => (
-              <>
-                <span className="line text-white" key={`${prefix}-1`}>
+              <div className="flex flex-col" key={`${prefix}`}>
+                <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{" "}
                   {
                     activeTheme?.cssVarsV4.light[
@@ -166,7 +166,7 @@ function CustomizerCode() {
                   }
                   ;
                 </span>
-                <span className="line text-white" key={`${prefix}-2`}>
+                <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{" "}
                   {
                     activeTheme?.cssVarsV4.light[
@@ -175,7 +175,7 @@ function CustomizerCode() {
                   }
                   ;
                 </span>
-              </>
+              </div>
             ))}
             <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--border:{" "}
@@ -195,7 +195,7 @@ function CustomizerCode() {
             {["chart-1", "chart-2", "chart-3", "chart-4", "chart-5"].map(
               prefix => (
                 <>
-                  <span className="line text-white">
+                  <span className="line text-white" key={prefix}>
                     &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{" "}
                     {
                       activeTheme?.cssVarsV4.light[
