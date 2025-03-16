@@ -9,7 +9,7 @@ export function useI18n() {
 
   useEffect(() => {
     function fetchTranslations() {
-      fetch(`/api/i18n?locale=${lang}&folder=${"locales"}`)
+      fetch(`/api/i18n?locale=${lang}&folder=${"src/locales"}`)
         .then(res => res.json())
         .then(data => {
           setT(() => createI18nHook(data)(lang));
