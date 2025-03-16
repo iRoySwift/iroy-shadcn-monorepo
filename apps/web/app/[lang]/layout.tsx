@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { NavHeader } from "@/components/nav-header";
+import { loadLocale } from "@iroy/i18n/loadLocale";
 import { ModeSwitcher } from "@iroy/theme";
 import { Separator } from "@iroy/ui/components/separator";
 import {

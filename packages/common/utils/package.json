@@ -14,6 +14,7 @@
     "@types/lodash-es": "^4.17.12"
   },
   "exports": {
+    "./common": "./src/common.ts",
     "./date-fns": "./src/date-fns.ts",
     "./lodash-es": "./src/lodash-es.ts"
   }

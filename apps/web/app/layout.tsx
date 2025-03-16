@@ -5,6 +5,7 @@ import { siteConfig } from "@/site";
 import { Toaster } from "@iroy/ui/components/sonner";
 import "@/styles/index.css";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { i18n, Lang } from "@iroy/i18n/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,13 +69,13 @@ export const metadata: Metadata = {
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={"en"} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

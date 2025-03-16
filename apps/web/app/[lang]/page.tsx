@@ -1,6 +1,8 @@
+"use client";
 import { CardsDemo } from "@/components/cards";
 import ThemeCustomizer from "@/components/theme-customizer";
 import ThemeWrapper from "@/components/theme-customizer/theme-wrapper";
+import { useI18n } from "@/locales";
 import { cn } from "@iroy/ui/lib/utils";
 import React from "react";
 
@@ -61,11 +63,13 @@ const PageActions = ({
 
 interface Props {}
 const Home: React.FC<Props> = () => {
+  const t = useI18n();
+
   return (
     <>
       <PageHeader>
-        <PageHeaderHeading>{title}</PageHeaderHeading>
-        <PageHeaderDescription>{description}</PageHeaderDescription>
+        <PageHeaderHeading>{t("home.title")}</PageHeaderHeading>
+        <PageHeaderDescription>{t("home.description")}</PageHeaderDescription>
         <PageActions>
           <ThemeCustomizer />
         </PageActions>

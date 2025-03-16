@@ -2,6 +2,7 @@
   "name": "iroy-shadcn-monorepo",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -23,9 +24,11 @@
     "node": ">=20"
   },
   "dependencies": {
+    "@iroy/i18n": "workspace:^",
+    "@iroy/theme": "workspace:^",
+    "@iroy/utils": "workspace:^",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@iroy/theme": "workspace:^",
     "zustand": "^5.0.3"
   }
 }
