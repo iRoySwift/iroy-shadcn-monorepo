@@ -64,7 +64,7 @@ export function SheetDemo() {
                 </SheetDescription>
               </SheetHeader>
               <div className="overflow-y-auto px-4 text-sm">
-                <h4 className="mb-4 text-lg leading-none font-medium">
+                <h4 className="mb-4 text-lg font-medium leading-none">
                   Lorem Ipsum
                 </h4>
                 {Array.from({ length: 10 }).map((_, index) => (

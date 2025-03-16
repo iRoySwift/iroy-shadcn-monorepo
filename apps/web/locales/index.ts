@@ -1,5 +1,5 @@
-import { generateUseI18n } from "@iroy/i18n";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { createI18nHook } from "@iroy/i18n";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { LangParams } from "@iroy/i18n/config";
 
@@ -12,7 +12,7 @@ export function useI18n() {
       fetch(`/api/i18n?locale=${lang}&folder=${"locales"}`)
         .then(res => res.json())
         .then(data => {
-          setT(() => generateUseI18n(data)(lang));
+          setT(() => createI18nHook(data)(lang));
         });
     }
     fetchTranslations();

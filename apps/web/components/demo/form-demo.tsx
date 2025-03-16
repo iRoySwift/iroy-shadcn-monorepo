@@ -222,7 +222,7 @@ export function FormDemo() {
           control={form.control}
           name="mobile"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-start gap-3 rounded-md border p-4 shadow-xs">
+            <FormItem className="shadow-xs flex flex-row items-start gap-3 rounded-md border p-4">
               <FormControl>
                 <Checkbox
                   checked={field.value}
@@ -277,7 +277,7 @@ export function FormDemo() {
                               }}
                             />
                           </FormControl>
-                          <FormLabel className="text-sm leading-tight font-normal">
+                          <FormLabel className="text-sm font-normal leading-tight">
                             {item.label}
                           </FormLabel>
                         </FormItem>
@@ -340,7 +340,7 @@ export function FormDemo() {
               control={form.control}
               name="marketing_emails"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start justify-between rounded-lg border p-4 shadow-xs">
+                <FormItem className="shadow-xs flex flex-row items-start justify-between rounded-lg border p-4">
                   <div className="flex flex-col gap-0.5">
                     <FormLabel className="leading-normal">
                       Marketing emails
@@ -362,7 +362,7 @@ export function FormDemo() {
               control={form.control}
               name="security_emails"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start justify-between rounded-lg border p-4 shadow-xs">
+                <FormItem className="shadow-xs flex flex-row items-start justify-between rounded-lg border p-4">
                   <div className="flex flex-col gap-0.5 opacity-60">
                     <FormLabel className="leading-normal">
                       Security emails

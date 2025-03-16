@@ -28,14 +28,14 @@ export function CollapsibleDemo() {
           </Button>
         </CollapsibleTrigger>
       </div>
-      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-xs">
+      <div className="shadow-xs rounded-md border px-4 py-2 font-mono text-sm">
         @radix-ui/primitives
       </div>
       <CollapsibleContent className="flex flex-col gap-2">
-        <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-xs">
+        <div className="shadow-xs rounded-md border px-4 py-2 font-mono text-sm">
           @radix-ui/colors
         </div>
-        <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-xs">
+        <div className="shadow-xs rounded-md border px-4 py-2 font-mono text-sm">
           @stitches/react
         </div>
       </CollapsibleContent>

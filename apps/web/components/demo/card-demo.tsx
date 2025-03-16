@@ -100,10 +100,7 @@ export function CardDemo() {
               <AvatarFallback>LR</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarImage
-                src="/avatars/evilrabbit.png"
-                alt="@evilrabbit"
-              />
+              <AvatarImage src="/avatars/evilrabbit.png" alt="@evilrabbit" />
               <AvatarFallback>ER</AvatarFallback>
             </Avatar>
           </div>

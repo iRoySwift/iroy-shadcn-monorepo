@@ -1,3 +1,4 @@
+"use server";
 import path from "path";
 import * as fs from "node:fs";
 

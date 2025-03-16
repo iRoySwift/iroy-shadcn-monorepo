@@ -19,5 +19,5 @@ export function InputDemo() {
       <Input type="week" placeholder="Week" />
       <Input disabled placeholder="Disabled" />
     </div>
-  )
+  );
 }

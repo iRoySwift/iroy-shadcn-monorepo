@@ -93,7 +93,7 @@ export function AlertDemo() {
         <Button
           size="sm"
           variant="outline"
-          className="absolute top-2.5 right-3 h-6 shadow-none">
+          className="absolute right-3 top-2.5 h-6 shadow-none">
           Undo
         </Button>
       </Alert>

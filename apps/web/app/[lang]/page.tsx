@@ -6,10 +6,6 @@ import { useI18n } from "@/locales";
 import { cn } from "@iroy/ui/lib/utils";
 import React from "react";
 
-const title = "Add colors. Make it yours.";
-const description =
-  "Hand-picked themes that you can copy and paste into your apps.";
-
 const PageHeader = ({
   className,
   children,

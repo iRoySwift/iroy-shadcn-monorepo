@@ -1,31 +1,46 @@
 "use client";
+
 import { merge } from "@iroy/utils/lodash-es";
 import { LocalesgMap } from "./typing";
-import { Lang, locales, Locales } from "./config";
+import { Lang, locales as defaultLocales, Locales } from "./config";
 import { getNestedValue } from "@iroy/utils/common";
 
 /**
+ * Generates a translation function for the specified language.
  *
- * @param customLocale 传入其他自定义语言
- * @returns
+ * @param customLocales Optional custom locales to merge with the default locales.
+ * @returns A function that takes a language and returns a translation function.
  */
-const generateUseI18n =
-  <T>(customLocale?: T) =>
+const createI18nHook =
+  <T>(customLocales?: T) =>
   (lang: Lang) => {
-    type MerLocales = Locales | T;
-    const mergeLocales: MerLocales = merge({}, locales, customLocale ?? {});
-    const local: LocalesgMap =
-      lang in mergeLocales
-        ? mergeLocales[lang as keyof Locales]
-        : mergeLocales.en;
+    type MergedLocales = Locales | T;
+    const mergedLocales: MergedLocales = merge(
+      {},
+      defaultLocales,
+      customLocales ?? {}
+    );
+    const localeData: LocalesgMap =
+      lang in mergedLocales
+        ? mergedLocales[lang as keyof Locales]
+        : mergedLocales.en;
 
-    const t = <K extends keyof LocalesgMap>(key: K): (typeof local)[K] => {
-      return getNestedValue(local, key);
+    /**
+     * Translation function to get the translated value for a given key.
+     *
+     * @param key The key to translate.
+     * @returns The translated value.
+     */
+    const translate = <K extends keyof LocalesgMap>(
+      key: K
+    ): (typeof localeData)[K] => {
+      return getNestedValue(localeData, key);
     };
 
-    return t;
+    return translate;
   };
 
-const useI18n = generateUseI18n();
+// Default translation hook using the default locales
+const useI18n = createI18nHook();
 
-export { generateUseI18n, useI18n };
+export { createI18nHook, useI18n };

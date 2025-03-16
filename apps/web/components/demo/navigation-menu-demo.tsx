@@ -63,9 +63,9 @@ export function NavigationMenuDemo() {
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <a
-                      className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
+                      className="from-muted/50 to-muted bg-linear-to-b outline-hidden flex h-full w-full select-none flex-col justify-end rounded-md p-6 no-underline focus:shadow-md"
                       href="/">
-                      <div className="mt-4 mb-2 text-lg font-medium">
+                      <div className="mb-2 mt-4 text-lg font-medium">
                         shadcn/ui
                       </div>
                       <p className="text-muted-foreground text-sm leading-tight">
@@ -213,7 +213,7 @@ function ListItem({
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
+          <div className="text-sm font-medium leading-none">{title}</div>
           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
             {children}
           </p>
