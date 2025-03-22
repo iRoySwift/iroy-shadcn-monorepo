@@ -7,11 +7,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "date-fns": "4.1.0",
-    "lodash-es": "^4.17.21"
+    "date-fns": "catalog:",
+    "lodash-es": "catalog:"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12"
+    "@types/lodash-es": "catalog:"
   },
   "exports": {
     "./common": "./src/common.ts",

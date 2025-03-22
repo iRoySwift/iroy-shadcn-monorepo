@@ -27,8 +27,10 @@
     "@iroy/i18n": "workspace:^",
     "@iroy/theme": "workspace:^",
     "@iroy/utils": "workspace:^",
+    "@iroy/hooks": "workspace:^",
+    "@iroy/ui": "workspace:^",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "zustand": "^5.0.3"
+    "zustand": "catalog:"
   }
 }

@@ -7,6 +7,6 @@
     "./react-hook-form": "./src/react-hook-form.ts"
   },
   "dependencies": {
-    "react-hook-form": "^7.54.2"
+    "react-hook-form": "catalog:"
   }
 }

@@ -16,10 +16,9 @@
   },
   "devDependencies": {
     "tailwindcss": "catalog:",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "catalog:"
   },
   "dependencies": {
-    "@iroy/ui": "workspace:^",
-    "next-themes": "^0.4.4"
+    "next-themes": "catalog:"
   }
 }
