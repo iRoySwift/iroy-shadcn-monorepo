@@ -4,9 +4,11 @@
   "type": "module",
   "private": true,
   "exports": {
-    ".": "./src/index.ts",
     "./config": "./src/config.ts",
-    "./loadLocale": "./src/load-locales.ts"
+    "./dictionaries": "./src/dictionaries.ts",
+    "./useCommonI18n": "./src/useCommonI18n.ts",
+    "./loadLocale": "./src/load-locales.ts",
+    "./typing": "./src/typing.d.ts"
   },
   "keywords": [],
   "author": "",

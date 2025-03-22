@@ -3,6 +3,9 @@ import { CardsDemo } from "@/components/cards";
 import ThemeCustomizer from "@/components/theme-customizer";
 import ThemeWrapper from "@/components/theme-customizer/theme-wrapper";
 import { useI18n } from "@/locales";
+import { getDictionary } from "@/locales/get-dictionary";
+// import { useI18n } from "@/locales";
+import { Lang } from "@iroy/i18n/config";
 import { cn } from "@iroy/ui/lib/utils";
 import React from "react";
 
@@ -57,14 +60,19 @@ const PageActions = ({
   </div>
 );
 
-interface Props {}
-const Home: React.FC<Props> = () => {
+interface Props {
+  params: {
+    lang: Lang;
+  };
+}
+const Home: React.FC<Props> = ({ params }) => {
+  // const t = await getDictionary(params.lang);
   const t = useI18n();
 
   return (
     <>
       <PageHeader>
-        <PageHeaderHeading>{t("home.title")}</PageHeaderHeading>
+        <PageHeaderHeading>{t("home.home")}</PageHeaderHeading>
         <PageHeaderDescription>{t("home.description")}</PageHeaderDescription>
         <PageActions>
           <ThemeCustomizer />

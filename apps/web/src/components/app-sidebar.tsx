@@ -36,9 +36,32 @@ import { Label } from "@iroy/ui/components/label";
 import { TeamSwitcher } from "./team-switcher";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
+import { useI18n } from "@/locales";
+import { DictionariesKey } from "@iroy/i18n/dictionaries";
+// import { CustomDictKey } from "@/locales/get-dictionary";
+
+type NavMainItem = {
+  title: string;
+  key: any;
+  url: string;
+};
+type NavMain = {
+  title: string;
+  key: any;
+  url: string;
+  icon: any;
+  isActive: boolean;
+  items?: NavMainItem[];
+};
+
+type Data = {
+  user: any;
+  teams: any;
+  navMain: NavMain[];
+};
 
 // This is sample data.
-const data = {
+const data: Data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
@@ -64,31 +87,31 @@ const data = {
   navMain: [
     {
       title: "Home",
+      key: "home.home",
       url: "/",
       icon: BookOpen,
       isActive: true,
     },
     {
       title: "Playground",
+      key: "playground",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "Home1",
-          url: "/",
-        },
-        {
           title: "Demo",
+          key: "demo",
           url: "/demo",
         },
       ],
     },
   ],
-  // components: Object.values(Index).filter(item => item.type === "registry:ui"),
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const t = useI18n();
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -97,11 +120,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroupContent>
             <form className="relative">
               <Label htmlFor="search" className="sr-only">
-                Search
+                {t("search")}
               </Label>
               <SidebarInput
                 id="search"
-                placeholder="Search the docs..."
+                placeholder={t("home.search_the_docs")}
                 className="pl-8"
               />
               <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
@@ -111,13 +134,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Platform</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("platform")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.navMain.map(item =>
                 item.items ? (
                   <Collapsible
-                    key={item.title}
+                    key={item.key}
                     asChild
                     defaultOpen={item.isActive}
                     className="group/collapsible">
@@ -125,17 +148,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton tooltip={item.title}>
                           {item.icon && <item.icon />}
-                          <span>{item.title}</span>
+                          <span>{t(item.key)}</span>
                           <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                         <SidebarMenuSub>
                           {item.items?.map(subItem => (
-                            <SidebarMenuSubItem key={subItem.title}>
+                            <SidebarMenuSubItem key={t(subItem.key)}>
                               <SidebarMenuSubButton asChild>
                                 <Link href={subItem.url}>
-                                  <span>{subItem.title}</span>
+                                  <span>{t(subItem.key)}</span>
                                 </Link>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
@@ -145,11 +168,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     </SidebarMenuItem>
                   </Collapsible>
                 ) : (
-                  <SidebarMenuItem key={item.title}>
+                  <SidebarMenuItem key={item.key}>
                     <SidebarMenuButton asChild>
                       <Link href={item.url}>
                         {item.icon && <item.icon />}
-                        <span>{item.title}</span>
+                        <span>{t(item.key)}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

@@ -10,13 +10,11 @@ export async function loadLocale(locale: string, url: string) {
     const files = fs
       .readdirSync(localeDir)
       .filter(file => file.endsWith(".json"));
-    let moduleJson: Record<string, any> = {};
     files.forEach(file => {
       const filePath = path.join(localeDir, file);
       const fileKey = path.basename(file, ".json"); // 获取文件名 (例如: "home", "about")
-      moduleJson[fileKey] = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      messages[fileKey] = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     });
-    messages[locale] = moduleJson;
   } else {
     console.warn(`Locale directory for ${locale} not found.`);
   }

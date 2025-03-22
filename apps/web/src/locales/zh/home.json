@@ -1,4 +1,6 @@
 {
-  "home": "首页",
-  "title": "添加你的颜色"
+  "home": "主页",
+  "title": "添加你的颜色",
+  "description": "这是首页",
+  "search_the_docs":"搜索文档..."
 }
