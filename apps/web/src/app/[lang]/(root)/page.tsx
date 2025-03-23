@@ -1,11 +1,8 @@
-"use client";
 import { CardsDemo } from "@/components/cards";
 import ThemeCustomizer from "@/components/theme-customizer";
 import ThemeWrapper from "@/components/theme-customizer/theme-wrapper";
-import { useI18n } from "@/locales";
-import { getDictionary } from "@/locales/get-dictionary";
-// import { useI18n } from "@/locales";
 import { Lang } from "@iroy/i18n/config";
+import { getI18n } from "@iroy/i18n";
 import { cn } from "@iroy/ui/lib/utils";
 import React from "react";
 
@@ -65,15 +62,14 @@ interface Props {
     lang: Lang;
   };
 }
-const Home: React.FC<Props> = ({ params }) => {
-  // const t = await getDictionary(params.lang);
-  const t = useI18n();
-
+const Home: React.FC<Props> = async ({ params }) => {
+  const { lang } = await params;
+  const $t = await getI18n<any>(lang);
   return (
     <>
       <PageHeader>
-        <PageHeaderHeading>{t("home.home")}</PageHeaderHeading>
-        <PageHeaderDescription>{t("home.description")}</PageHeaderDescription>
+        <PageHeaderHeading>{$t("home.home")}</PageHeaderHeading>
+        <PageHeaderDescription>{$t("home.description")}</PageHeaderDescription>
         <PageActions>
           <ThemeCustomizer />
         </PageActions>

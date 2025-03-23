@@ -1,5 +1,4 @@
 "use client";
-import { useI18n } from "@/locales";
 import { Button } from "@iroy/ui/components/button";
 import Link from "next/link";
 import {
@@ -7,18 +6,18 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@iroy/ui/components/dropdown-menu";
 import { Globe } from "@iroy/ui/icons";
 import React from "react";
 import { usePathname } from "next/navigation";
+import { useI18nStore } from "@iroy/i18n/store";
 
 interface Props {}
-const LocaleSwitcher: React.FC<Props> = () => {
-  const t = useI18n();
+
+const LocaleSwitcher: React.FC<Props> = (props: Props) => {
+  const { $t } = useI18nStore();
   const pathname = usePathname();
-  console.log("🚀 ~ pathname:", pathname);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -30,12 +29,12 @@ const LocaleSwitcher: React.FC<Props> = () => {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <Link href={`/en/${pathname.split("/").slice(2).join("/")}`}>
-              {t("en")}
+              {$t("common.en")}
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href={`/zh/${pathname.split("/").slice(2).join("/")}`}>
-              {t("zh")}
+              {$t("common.zh")}
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>

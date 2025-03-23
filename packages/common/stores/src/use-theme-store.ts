@@ -1,8 +1,8 @@
 import { create } from "zustand";
-import { Style } from "../constants";
-import { ThemeColor } from "../colors";
+import { ThemeColor } from "@iroy/theme/colors";
+import { Style } from "@iroy/theme/constants";
 
-type ThemeSore = {
+type iThemeSore = {
   style: Style["name"];
   theme: ThemeColor["name"];
   radius: number;
@@ -16,7 +16,7 @@ type ThemeSore = {
   ) => void;
 };
 
-export const useThemeStore = create<ThemeSore>(set => ({
+export const useThemeStore = create<iThemeSore>(set => ({
   style: "new-york",
   theme: "zinc",
   radius: 0.5,

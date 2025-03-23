@@ -12,6 +12,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./index.css": "./src/index.css",
+    "./constants": "./src/constants/index.ts",
     "./colors": "./src/colors/index.ts"
   },
   "devDependencies": {

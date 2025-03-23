@@ -3,9 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { META_THEME_COLORS, ThemeProvider } from "@iroy/theme";
 import { siteConfig } from "@/site";
 import { Toaster } from "@iroy/ui/components/sonner";
-import "@/styles/index.css";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { i18n, Lang } from "@iroy/i18n/config";
+import { Lang } from "@iroy/i18n/config";
+import DictionariesStore from "@/components/dictionaries-store";
+import "@/styles/index.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,8 +79,9 @@ export default async function RootLayout({
     lang: Lang;
   };
 }>) {
+  const { lang } = await params;
   return (
-    <html lang={params.lang} suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -101,6 +103,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange>
           {children}
+          <DictionariesStore lang={lang} />
           <Toaster />
           <TailwindIndicator />
         </ThemeProvider>

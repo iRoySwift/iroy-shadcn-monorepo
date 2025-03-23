@@ -36,9 +36,7 @@ import { Label } from "@iroy/ui/components/label";
 import { TeamSwitcher } from "./team-switcher";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
-import { useI18n } from "@/locales";
-import { DictionariesKey } from "@iroy/i18n/dictionaries";
-// import { CustomDictKey } from "@/locales/get-dictionary";
+import { useI18nStore } from "@iroy/i18n/store";
 
 type NavMainItem = {
   title: string;
@@ -94,23 +92,24 @@ const data: Data = {
     },
     {
       title: "Playground",
-      key: "playground",
+      key: "common.playground",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
           title: "Demo",
-          key: "demo",
+          key: "common.demo",
           url: "/demo",
         },
       ],
     },
   ],
 };
+interface Props extends React.ComponentProps<typeof Sidebar> {}
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const t = useI18n();
+export function AppSidebar(props: Props) {
+  const { $t } = useI18nStore();
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -120,11 +119,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroupContent>
             <form className="relative">
               <Label htmlFor="search" className="sr-only">
-                {t("search")}
+                {$t("common.search")}
               </Label>
               <SidebarInput
                 id="search"
-                placeholder={t("home.search_the_docs")}
+                placeholder={$t("home.search_the_docs")}
                 className="pl-8"
               />
               <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
@@ -134,7 +133,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>{t("platform")}</SidebarGroupLabel>
+          <SidebarGroupLabel>{$t("common.platform")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.navMain.map(item =>
@@ -148,17 +147,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton tooltip={item.title}>
                           {item.icon && <item.icon />}
-                          <span>{t(item.key)}</span>
+                          <span>{$t(item.key)}</span>
                           <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                         <SidebarMenuSub>
                           {item.items?.map(subItem => (
-                            <SidebarMenuSubItem key={t(subItem.key)}>
+                            <SidebarMenuSubItem key={$t(subItem.key)}>
                               <SidebarMenuSubButton asChild>
                                 <Link href={subItem.url}>
-                                  <span>{t(subItem.key)}</span>
+                                  <span>{$t(subItem.key)}</span>
                                 </Link>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
@@ -172,7 +171,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenuButton asChild>
                       <Link href={item.url}>
                         {item.icon && <item.icon />}
-                        <span>{t(item.key)}</span>
+                        <span>{$t(item.key)}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

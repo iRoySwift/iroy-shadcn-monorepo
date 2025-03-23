@@ -1,6 +1,7 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import LocaleSwitcher from "@/components/locale-switcher";
 import { NavHeader } from "@/components/nav-header";
+import { getI18n } from "@iroy/i18n";
 import { Lang } from "@iroy/i18n/config";
 import { ModeSwitcher } from "@iroy/theme";
 import { Separator } from "@iroy/ui/components/separator";
@@ -19,8 +20,10 @@ interface Props {
   };
 }
 const AppLayout: React.FC<Props> = async ({ children, params }) => {
+  const { lang } = await params;
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+  const $t = await getI18n(lang);
 
   return (
     <Suspense fallback={<p>Loading content...</p>}>
@@ -37,7 +40,7 @@ const AppLayout: React.FC<Props> = async ({ children, params }) => {
               <NavHeader />
               <div className="ml-auto flex items-center gap-2">
                 <LocaleSwitcher />
-                <ModeSwitcher lang={params.lang} />
+                <ModeSwitcher />
               </div>
             </div>
           </header>
