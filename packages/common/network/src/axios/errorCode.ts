@@ -12,6 +12,8 @@ const ERRORCODE = {
   505: "http版本不支持该请求!",
   901: "演示模式，无法进行写操作!",
   default: "系统未知错误，请反馈给管理员",
-};
+} as const;
+
+export type ErrorCodeKey = keyof typeof ERRORCODE;
 
 export default ERRORCODE;

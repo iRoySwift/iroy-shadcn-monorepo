@@ -9,11 +9,10 @@ import { useTheme, useThemeStore } from "@iroy/theme";
 import { cn } from "@iroy/ui/lib/utils";
 import { Skeleton } from "@iroy/ui/components/skeleton";
 
-interface Props {}
-const Customizer: React.FC<Props> = () => {
+const Customizer: React.FC = () => {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme: setMode, resolvedTheme: mode = "light" } = useTheme();
-  const { radius, setRadius, theme, setTheme, style, setThemeConfig } =
+  const { radius, setRadius, theme, setTheme, setThemeConfig } =
     useThemeStore();
 
   React.useEffect(() => {

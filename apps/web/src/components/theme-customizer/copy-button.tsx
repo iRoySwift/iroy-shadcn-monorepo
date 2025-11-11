@@ -2,14 +2,12 @@
 
 import { Event, trackEvent } from "@/utils/events";
 
-interface CopyButtonProps {
-  value: string;
-  src?: string;
-  event?: Event["name"];
-}
-
 export async function copyToClipboardWithMeta(value: string, event?: Event) {
-  navigator.clipboard.writeText(value);
+  try {
+    await navigator.clipboard.writeText(value);
+  } catch (error) {
+    console.error("Failed to copy to clipboard", error);
+  }
   if (event) {
     trackEvent(event);
   }

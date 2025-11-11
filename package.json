@@ -8,6 +8,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check": "pnpm --filter @iroy/web exec tsc --noEmit",
     "clean": "pnpm -r exec rm -rf node_modules"
   },
   "devDependencies": {

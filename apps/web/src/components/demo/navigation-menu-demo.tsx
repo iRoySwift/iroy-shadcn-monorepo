@@ -62,7 +62,7 @@ export function NavigationMenuDemo() {
               <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
-                    <a
+                    <Link
                       className="from-muted/50 to-muted bg-linear-to-b outline-hidden flex h-full w-full select-none flex-col justify-end rounded-md p-6 no-underline focus:shadow-md"
                       href="/">
                       <div className="mb-2 mt-4 text-lg font-medium">
@@ -71,7 +71,7 @@ export function NavigationMenuDemo() {
                       <p className="text-muted-foreground text-sm leading-tight">
                         Beautifully designed components built with Tailwind CSS.
                       </p>
-                    </a>
+                    </Link>
                   </NavigationMenuLink>
                 </li>
                 <ListItem href="/docs" title="Introduction">

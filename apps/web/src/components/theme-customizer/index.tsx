@@ -20,10 +20,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogFooter,
 } from "@iroy/ui/components/dialog";
-import { Input } from "@iroy/ui/components/input";
-import { Label } from "@iroy/ui/components/label";
 import ThemeWrapper from "./theme-wrapper";
 import { ThemeColor, themeColor } from "@iroy/theme/colors";
 import { useThemeStore } from "@iroy/theme";
@@ -32,8 +29,7 @@ import { Check, Copy } from "@iroy/ui/icons";
 import { copyToClipboardWithMeta } from "./copy-button";
 import { cn } from "@iroy/ui/lib/utils";
 
-interface Props {}
-const ThemeCustomizer: React.FC<Props> = () => {
+const ThemeCustomizer: React.FC = () => {
   return (
     <div className="flex items-center gap-2">
       <Drawer>

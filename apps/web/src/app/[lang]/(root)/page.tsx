@@ -64,7 +64,7 @@ interface Props {
 }
 const Home: React.FC<Props> = async ({ params }) => {
   const { lang } = await params;
-  const $t = await getI18n<any>(lang);
+  const $t = await getI18n(lang);
   return (
     <>
       <PageHeader>

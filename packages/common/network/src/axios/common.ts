@@ -1,5 +1,5 @@
-import { ObjParams } from "index";
-import errorCode from "./errorCode";
+import type { ObjParams } from "../../index";
+import errorCode, { ErrorCodeKey } from "./errorCode";
 import { service } from "./service.js";
 import { saveAs } from "file-saver";
 /**
@@ -7,7 +7,7 @@ import { saveAs } from "file-saver";
  * @param data
  * @returns
  */
-export async function isBlobValidate(data) {
+export async function isBlobValidate(data: Blob): Promise<boolean> {
   try {
     const text = await data.text();
     JSON.parse(text);
@@ -21,22 +21,23 @@ export async function isBlobValidate(data) {
  * 参数处理
  * @param {*} params  参数
  */
-export function tansParams(params: ObjParams) {
+export function tansParams(params: ObjParams): string {
   let result = "";
-  for (const propName of Object.keys(params)) {
-    const value = params[propName];
+  const entries = Object.entries(params ?? {});
+  for (const [propName, value] of entries) {
     const part = encodeURIComponent(propName) + "=";
     if (value !== null && typeof value !== "undefined") {
       if (typeof value === "object") {
         for (const key of Object.keys(value)) {
-          if (value[key] !== null && typeof value[key] !== "undefined") {
-            const params = propName + "[" + key + "]";
-            const subPart = encodeURIComponent(params) + "=";
-            result += subPart + encodeURIComponent(value[key]) + "&";
+          const nestedValue = (value as Record<string, unknown>)[key];
+          if (nestedValue !== null && typeof nestedValue !== "undefined") {
+            const paramKey = `${propName}[${key}]`;
+            const subPart = encodeURIComponent(paramKey) + "=";
+            result += subPart + encodeURIComponent(String(nestedValue)) + "&";
           }
         }
       } else {
-        result += part + encodeURIComponent(value) + "&";
+        result += part + encodeURIComponent(String(value)) + "&";
       }
     }
   }
@@ -63,9 +64,13 @@ export function download(url: string, params: ObjParams, filename: string) {
         saveAs(blob, filename);
       } else {
         const resText = await data.text();
-        const rspObj = JSON.parse(resText) as any;
+        const rspObj = JSON.parse(resText) as {
+          code?: unknown;
+          msg?: string;
+        };
+        const normalizedCode = String(rspObj.code) as ErrorCodeKey;
         const errMsg =
-          errorCode[rspObj.code] || rspObj.msg || errorCode["default"];
+          errorCode[normalizedCode] ?? rspObj.msg ?? errorCode.default;
         alert(errMsg);
       }
     })

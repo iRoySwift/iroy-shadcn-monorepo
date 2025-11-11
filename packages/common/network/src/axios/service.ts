@@ -7,9 +7,8 @@ import axios, {
 } from "axios";
 import { Recordable, config } from "./config";
 import qs from "qs";
-import errorCode from "./errorCode";
+import errorCode, { ErrorCodeKey } from "./errorCode";
 import { getRefreshToken, getToken, removeToken, setToken } from "./auth";
-import ERRORCODE from "./errorCode";
 
 const { base_url, sys_base_url, request_timeout, result_code } = config;
 
@@ -22,7 +21,7 @@ const ignoreMsgs = [
 export const isRelogin = { show: false };
 // Axios 无感知刷新令牌，参考 https://www.dashingdog.cn/article/11 与 https://segmentfault.com/a/1190000020210980 实现
 // 请求队列
-let requestList: any[] = [];
+let requestList: Array<() => void> = [];
 // 是否正在刷新中
 let isRefreshToken = false;
 // 请求白名单，无须token的接口
@@ -112,7 +111,7 @@ const responseOnFulfilled = async (response: AxiosResponse<any>) => {
     throw new Error();
   }
   // 未设置状态码则默认成功状态
-  const code = data.code || result_code;
+  const code = (data.code ?? result_code) as ErrorCodeKey | number | string;
   // 二进制数据则直接返回
   if (
     response.request.responseType === "blob" ||
@@ -121,7 +120,8 @@ const responseOnFulfilled = async (response: AxiosResponse<any>) => {
     return response.data;
   }
   // 获取错误信息
-  const msg = data.message || errorCode[code] || errorCode["default"];
+  const messageKey = String(code) as ErrorCodeKey;
+  const msg = data.message ?? errorCode[messageKey] ?? errorCode.default;
   if (ignoreMsgs.indexOf(msg) !== -1) {
     // 如果是忽略的错误码，直接返回 msg 异常
     return Promise.reject(msg);
@@ -174,7 +174,15 @@ const responseOnFulfilled = async (response: AxiosResponse<any>) => {
     } else {
       console.log(msg);
     }
-    window.dialog.error(ERRORCODE[response?.status || "default"]);
+    if (typeof window !== "undefined") {
+      const statusKey = String(response?.status ?? "default") as ErrorCodeKey;
+      const dialog = (
+        window as typeof window & {
+          dialog?: { error?: (message: string) => void };
+        }
+      ).dialog;
+      dialog?.error?.(errorCode[statusKey] ?? errorCode.default);
+    }
     return Promise.reject("error");
   } else {
     return data;

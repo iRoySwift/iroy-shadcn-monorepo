@@ -8,6 +8,8 @@ import { Lang } from "@iroy/i18n/config";
 import DictionariesStore from "@/components/dictionaries-store";
 import "@/styles/index.css";
 
+type RootLayoutProps = LayoutProps<"/[lang]">;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -73,13 +75,9 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: {
-    lang: Lang;
-  };
-}>) {
-  const { lang } = await params;
+}: RootLayoutProps) {
+  const resolvedParams = await params;
+  const lang = resolvedParams.lang as Lang;
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>

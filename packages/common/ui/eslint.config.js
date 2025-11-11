@@ -1,3 +1,12 @@
-import { eslintConfig } from "@iroy/eslint/next";
+import eslintConfig from "@iroy/eslint/next";
 
-export default eslintConfig;
+const config = [
+  ...eslintConfig,
+  {
+    rules: {
+      "@next/next/no-html-link-for-pages": "off",
+    },
+  },
+];
+
+export default config;

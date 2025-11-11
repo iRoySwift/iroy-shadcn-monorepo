@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentProps, ComponentType, SVGProps } from "react";
 import {
   AudioWaveform,
   BookOpen,
@@ -38,23 +39,37 @@ import { NavUser } from "./nav-user";
 import Link from "next/link";
 import { useI18nStore } from "@iroy/i18n/store";
 
+type LocaleKey = string;
+
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+
 type NavMainItem = {
   title: string;
-  key: any;
+  key: LocaleKey;
   url: string;
 };
-type NavMain = {
-  title: string;
-  key: any;
-  url: string;
-  icon: any;
+
+type NavMain = NavMainItem & {
+  icon?: IconComponent;
   isActive: boolean;
   items?: NavMainItem[];
 };
 
+type Team = {
+  name: string;
+  logo: IconComponent;
+  plan: string;
+};
+
+type User = {
+  name: string;
+  email: string;
+  avatar: string;
+};
+
 type Data = {
-  user: any;
-  teams: any;
+  user: User;
+  teams: Team[];
   navMain: NavMain[];
 };
 
@@ -106,7 +121,7 @@ const data: Data = {
     },
   ],
 };
-interface Props extends React.ComponentProps<typeof Sidebar> {}
+type Props = ComponentProps<typeof Sidebar>;
 
 export function AppSidebar(props: Props) {
   const { $t } = useI18nStore();

@@ -9,13 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@iroy/ui/components/dropdown-menu";
 import { Globe } from "@iroy/ui/icons";
-import React from "react";
+import type { FC } from "react";
 import { usePathname } from "next/navigation";
 import { useI18nStore } from "@iroy/i18n/store";
 
-interface Props {}
-
-const LocaleSwitcher: React.FC<Props> = (props: Props) => {
+const LocaleSwitcher: FC = () => {
   const { $t } = useI18nStore();
   const pathname = usePathname();
   return (

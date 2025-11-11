@@ -13,7 +13,7 @@ const DictionariesStore: React.FC<SetDictionariesProps> = ({ lang }) => {
 
   useEffect(() => {
     setDictionaries(lang);
-  }, [lang]);
+  }, [lang, setDictionaries]);
 
   return null;
 };

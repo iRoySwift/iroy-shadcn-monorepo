@@ -4,10 +4,10 @@ import { match } from "@formatjs/intl-localematcher";
 import { i18n } from "@iroy/i18n/config";
 
 function getLocale(request: NextRequest): string | undefined {
-  let headers = {
+  const headers = {
     "accept-language": request.headers.get("accept-language") ?? "en;q=0.5",
   };
-  let languages = new Negotiator({ headers }).languages();
+  const languages = new Negotiator({ headers }).languages();
   const locale = match(languages, i18n.locales, i18n.defaultLocale); // -> 'en'
   return locale;
 }

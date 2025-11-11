@@ -1,8 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import LocaleSwitcher from "@/components/locale-switcher";
 import { NavHeader } from "@/components/nav-header";
-import { getI18n } from "@iroy/i18n";
-import { Lang } from "@iroy/i18n/config";
 import { ModeSwitcher } from "@iroy/theme";
 import { Separator } from "@iroy/ui/components/separator";
 import {
@@ -11,20 +9,14 @@ import {
   SidebarTrigger,
 } from "@iroy/ui/components/sidebar";
 import { cookies } from "next/headers";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
-interface Props {
-  children: React.ReactNode;
-  params: {
-    lang: Lang;
-  };
-}
-const AppLayout: React.FC<Props> = async ({ children, params }) => {
-  const { lang } = await params;
+type AppLayoutProps = LayoutProps<"/[lang]">;
+
+export default async function AppLayout({ children, params }: AppLayoutProps) {
+  await params;
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
-  const $t = await getI18n(lang);
-
   return (
     <Suspense fallback={<p>Loading content...</p>}>
       <SidebarProvider defaultOpen={defaultOpen}>
@@ -49,5 +41,4 @@ const AppLayout: React.FC<Props> = async ({ children, params }) => {
       </SidebarProvider>
     </Suspense>
   );
-};
-export default AppLayout;
+}
