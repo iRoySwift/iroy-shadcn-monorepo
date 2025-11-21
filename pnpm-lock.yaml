@@ -43,7 +43,7 @@ catalogs:
       specifier: ^9
       version: 9.21.0
     eslint-config-next:
-      specifier: 15.5.6
+      specifier: ^16.0.0
       version: 15.5.6
     file-saver:
       specifier: ^2.0.5
@@ -55,7 +55,7 @@ catalogs:
       specifier: ^4.17.21
       version: 4.17.21
     next:
-      specifier: 15.5.6
+      specifier: ^16.0.0
       version: 15.5.6
     next-themes:
       specifier: ^0.4.3
