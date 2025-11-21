@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start next-devtools MCP",
+      "type": "shell",
+      "command": "pnpm run mcp:next-devtools",
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
