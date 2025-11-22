@@ -11,10 +11,10 @@ import {
 import { Globe } from "@iroy/ui/icons";
 import type { FC } from "react";
 import { usePathname } from "next/navigation";
-import { useI18nStore } from "@iroy/i18n/store";
+import { useTranslator } from "@iroy/i18n/client";
 
 const LocaleSwitcher: FC = () => {
-  const { $t } = useI18nStore();
+  const t = useTranslator();
   const pathname = usePathname();
   return (
     <DropdownMenu>
@@ -27,12 +27,12 @@ const LocaleSwitcher: FC = () => {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <Link href={`/en/${pathname.split("/").slice(2).join("/")}`}>
-              {$t("common.en")}
+              {t("common.en")}
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href={`/zh/${pathname.split("/").slice(2).join("/")}`}>
-              {$t("common.zh")}
+              {t("common.zh")}
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>

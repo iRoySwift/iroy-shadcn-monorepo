@@ -2,7 +2,7 @@ import { CardsDemo } from "@/components/cards";
 import ThemeCustomizer from "@/components/theme-customizer";
 import ThemeWrapper from "@/components/theme-customizer/theme-wrapper";
 import { Lang } from "@iroy/i18n/config";
-import { getI18n } from "@iroy/i18n";
+import { getDictionaries, createTranslator } from "@iroy/i18n";
 import { cn } from "@iroy/ui/lib/utils";
 import React from "react";
 
@@ -64,7 +64,19 @@ interface Props {
 }
 const Home: React.FC<Props> = async ({ params }) => {
   const { lang } = await params;
-  const $t = await getI18n(lang);
+  // Load shared `common` namespace and app-local `home` namespace so nested keys resolve
+  const dicts = await getDictionaries(lang, ["common"]);
+  let homeNs: Record<string, unknown> = {};
+  try {
+    // import app-local namespace (apps/web/src/locales/{lang}/home.json)
+    // @ts-ignore
+    const mod = await import(`@/locales/${lang}/home.json`);
+    homeNs = mod?.default ?? mod;
+  } catch {
+    homeNs = {};
+  }
+  const merged = Object.assign({}, ...Object.values(dicts), { home: homeNs });
+  const $t = createTranslator(merged);
   return (
     <>
       <PageHeader>

@@ -37,7 +37,7 @@ import { Label } from "@iroy/ui/components/label";
 import { TeamSwitcher } from "./team-switcher";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
-import { useI18nStore } from "@iroy/i18n/store";
+import { useTranslator } from "@iroy/i18n/client";
 
 type LocaleKey = string;
 
@@ -124,7 +124,7 @@ const data: Data = {
 type Props = ComponentProps<typeof Sidebar>;
 
 export function AppSidebar(props: Props) {
-  const { $t } = useI18nStore();
+  const t = useTranslator();
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -134,11 +134,11 @@ export function AppSidebar(props: Props) {
           <SidebarGroupContent>
             <form className="relative">
               <Label htmlFor="search" className="sr-only">
-                {$t("common.search")}
+                {t("common.search")}
               </Label>
               <SidebarInput
                 id="search"
-                placeholder={$t("home.search_the_docs")}
+                placeholder={t("home.search_the_docs")}
                 className="pl-8"
               />
               <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
@@ -148,7 +148,7 @@ export function AppSidebar(props: Props) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>{$t("common.platform")}</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("common.platform")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.navMain.map(item =>
@@ -162,17 +162,17 @@ export function AppSidebar(props: Props) {
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton tooltip={item.title}>
                           {item.icon && <item.icon />}
-                          <span>{$t(item.key)}</span>
+                          <span>{t(item.key)}</span>
                           <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                         <SidebarMenuSub>
                           {item.items?.map(subItem => (
-                            <SidebarMenuSubItem key={$t(subItem.key)}>
+                            <SidebarMenuSubItem key={subItem.key}>
                               <SidebarMenuSubButton asChild>
                                 <Link href={subItem.url}>
-                                  <span>{$t(subItem.key)}</span>
+                                  <span>{t(subItem.key)}</span>
                                 </Link>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
@@ -186,7 +186,7 @@ export function AppSidebar(props: Props) {
                     <SidebarMenuButton asChild>
                       <Link href={item.url}>
                         {item.icon && <item.icon />}
-                        <span>{$t(item.key)}</span>
+                        <span>{t(item.key)}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

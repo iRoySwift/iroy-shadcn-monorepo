@@ -6,12 +6,12 @@
   "exports": {
     ".": "./src/index.ts",
     "./config": "./src/config.ts",
-    "./loadLocale": "./src/load-locales.ts",
-    "./store": "./src/store/index.ts",
-    "./typing": "./src/typing.d.ts"
+    "./client": "./src/client.tsx"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "next-intl": "catalog:"
+  }
 }

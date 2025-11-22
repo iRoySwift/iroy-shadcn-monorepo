@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { loadLocale } from "@iroy/i18n/loadLocale";
+import { getDictionaries } from "@iroy/i18n";
+import { Lang } from "@iroy/i18n/config";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const locale = searchParams.get("locale") || "en";
-  const folder = searchParams.get("folder") || "src/locales";
-  const translations = await loadLocale(locale, folder);
+  const locale = (searchParams.get("locale") || "en") as Lang;
+  const translations = await getDictionaries(locale);
   return NextResponse.json(translations);
 }
