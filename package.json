@@ -9,7 +9,7 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check": "pnpm --filter @iroy/web exec tsc --noEmit",
-    "clean": "pnpm -r exec rm -rf node_modules",
+    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
     "mcp:next-devtools": "npx -y next-devtools-mcp@latest"
   },
   "devDependencies": {
@@ -17,7 +17,7 @@
     "@iroy/typescript": "workspace:^",
     "@types/node": "catalog:",
     "prettier": "catalog:",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "turbo": "catalog:",
     "typescript": "catalog:"
   },

@@ -10,12 +10,28 @@ import {
 } from "@iroy/ui/components/dropdown-menu";
 import { Globe } from "@iroy/ui/icons";
 import type { FC } from "react";
-import { usePathname } from "next/navigation";
-import { useTranslator } from "@iroy/i18n/client";
+import { usePathname, useRouter } from "next/navigation";
+import { Locale, useTranslations } from "next-intl";
+import { Label } from "@iroy/ui/components/label";
+import React from "react";
 
-const LocaleSwitcher: FC = () => {
-  const t = useTranslator();
+type Props = {
+  changeLocaleAction: (locale: Locale) => Promise<void>;
+};
+
+const LocaleSwitcher: FC<Props> = ({ changeLocaleAction }) => {
+  const t = useTranslations("Common");
   const pathname = usePathname();
+  const router = useRouter();
+
+
+  const toLocalePage = async (locale: Locale) => {
+    console.log("🚀 ~ toLocalePage ~ locale:", locale);
+    const newPath = `/${locale}/${pathname.split("/").slice(2).join("/")}`;
+    router.push(newPath);
+    await changeLocaleAction(locale);
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -26,14 +42,10 @@ const LocaleSwitcher: FC = () => {
       <DropdownMenuContent>
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <Link href={`/en/${pathname.split("/").slice(2).join("/")}`}>
-              {t("common.en")}
-            </Link>
+            <Label onClick={() => toLocalePage("en")}>{t("en")}</Label>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link href={`/zh/${pathname.split("/").slice(2).join("/")}`}>
-              {t("common.zh")}
-            </Link>
+            <Label onClick={() => toLocalePage("zh")}>{t("zh")}</Label>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

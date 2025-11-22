@@ -1,0 +1,22 @@
+{
+  "common": {
+    "light": "亮",
+    "dark": "暗",
+    "system": "系统",
+    "assets": "资产",
+    "playground": "沙盒",
+    "demo": "演示",
+    "platform": "平台",
+    "search": "搜索",
+    "zh": "中文",
+    "en": "英语",
+    "toggle_theme": "切换主题",
+    "home": "主页"
+  },
+  "HomePage": {
+    "description": "这是主页。",
+    "home": "主页",
+    "search_the_docs": "搜索文档...",
+    "title": "添加你的颜色"
+  }
+}

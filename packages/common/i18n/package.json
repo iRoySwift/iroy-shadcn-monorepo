@@ -3,11 +3,6 @@
   "version": "0.0.0",
   "type": "module",
   "private": true,
-  "exports": {
-    ".": "./src/index.ts",
-    "./config": "./src/config.ts",
-    "./client": "./src/client.tsx"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

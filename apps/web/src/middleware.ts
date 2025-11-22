@@ -1,21 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
-import { i18n } from "@iroy/i18n/config";
+import AppConfig from "./config";
 
-function getLocale(request: NextRequest): string | undefined {
-  const headers = {
-    "accept-language": request.headers.get("accept-language") ?? "en;q=0.5",
-  };
-  const languages = new Negotiator({ headers }).languages();
-  const locale = match(languages, i18n.locales, i18n.defaultLocale); // -> 'en'
-  return locale;
+function getLocale(request: NextRequest): string {
+  const acceptLanguage = request.headers.get("accept-language") ?? "";
+  const languages = new Negotiator({
+    headers: { "accept-language": acceptLanguage },
+  }).languages();
+  return match(
+    languages,
+    AppConfig.supported_locales,
+    AppConfig.default_locale
+  );
 }
 
-export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  // 跳过 API 端点
+
+  // Skip API, static, next internals and assets
   if (
     pathname.startsWith("/api/") ||
     pathname.startsWith("/avatars/") ||
@@ -25,25 +28,19 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const pathnameHasLocale = i18n.locales.some(
-    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  // If the pathname already begins with a supported locale, continue
+  const pathnameHasLocale = AppConfig.supported_locales.some(
+    locale => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return NextResponse.next();
 
-  // Redirect if there is no locale
+  // Redirect to the best-matching locale (or default)
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /products
-  // The new URL is now /en-US/products
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    "/((?!_next).*)",
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  matcher: ["/((?!_next).*)"],
 };

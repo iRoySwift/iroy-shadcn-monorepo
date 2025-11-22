@@ -1,12 +1,8 @@
 "use client";
-
 import type { ComponentProps, ComponentType, SVGProps } from "react";
 import {
-  AudioWaveform,
   BookOpen,
   ChevronRightIcon,
-  Command,
-  GalleryVerticalEnd,
   Search,
   SquareTerminal,
 } from "@iroy/ui/icons";
@@ -37,7 +33,7 @@ import { Label } from "@iroy/ui/components/label";
 import { TeamSwitcher } from "./team-switcher";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
-import { useTranslator } from "@iroy/i18n/client";
+import { useTranslations } from "next-intl";
 
 type LocaleKey = string;
 
@@ -57,7 +53,7 @@ type NavMain = NavMainItem & {
 
 type Team = {
   name: string;
-  logo: IconComponent;
+  logo: IconComponent | string;
   plan: string;
 };
 
@@ -83,38 +79,38 @@ const data: Data = {
   teams: [
     {
       name: "Acme Inc",
-      logo: GalleryVerticalEnd,
+      logo: "GalleryVerticalEnd",
       plan: "Enterprise",
     },
     {
       name: "Acme Corp.",
-      logo: AudioWaveform,
+      logo: "AudioWaveform",
       plan: "Startup",
     },
     {
       name: "Evil Corp.",
-      logo: Command,
+      logo: "Command",
       plan: "Free",
     },
   ],
   navMain: [
     {
       title: "Home",
-      key: "home.home",
+      key: "Common.home",
       url: "/",
       icon: BookOpen,
       isActive: true,
     },
     {
       title: "Playground",
-      key: "common.playground",
+      key: "Common.playground",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
           title: "Demo",
-          key: "common.demo",
+          key: "Common.demo",
           url: "/demo",
         },
       ],
@@ -124,7 +120,7 @@ const data: Data = {
 type Props = ComponentProps<typeof Sidebar>;
 
 export function AppSidebar(props: Props) {
-  const t = useTranslator();
+  const t = useTranslations();
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -134,11 +130,11 @@ export function AppSidebar(props: Props) {
           <SidebarGroupContent>
             <form className="relative">
               <Label htmlFor="search" className="sr-only">
-                {t("common.search")}
+                {t("Common.search")}
               </Label>
               <SidebarInput
                 id="search"
-                placeholder={t("home.search_the_docs")}
+                placeholder={t("HomePage.search_the_docs")}
                 className="pl-8"
               />
               <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
@@ -148,7 +144,7 @@ export function AppSidebar(props: Props) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>{t("common.platform")}</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("Common.platform")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {data.navMain.map(item =>

@@ -6,14 +6,14 @@ import { Button } from "@iroy/ui/components/button";
 import { SunIcon, MoonIcon } from "@iroy/ui/icons";
 import { useMetaColor } from "./hooks/use-meta-color";
 import { META_THEME_COLORS } from "./constants";
-import { useTranslator } from "@iroy/i18n/client";
+import { useTranslations } from "next-intl";
 
 interface Props {}
 
 export function ModeSwitcher(props: Props) {
   const { setTheme, resolvedTheme } = useTheme();
   const { setMetaColor } = useMetaColor();
-  const t = useTranslator();
+  const t = useTranslations("Common");
 
   const toggleTheme = React.useCallback(() => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -31,7 +31,7 @@ export function ModeSwitcher(props: Props) {
       onClick={toggleTheme}>
       <SunIcon className="hidden [html.dark_&]:block" />
       <MoonIcon className="hidden [html.light_&]:block" />
-      <span className="sr-only">{t("common.toggle_theme")}</span>
+      <span className="sr-only">{t("toggle_theme")}</span>
     </Button>
   );
 }

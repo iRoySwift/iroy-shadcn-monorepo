@@ -4,8 +4,8 @@ import { META_THEME_COLORS, ThemeProvider } from "@iroy/theme";
 import { siteConfig } from "@/site";
 import { Toaster } from "@iroy/ui/components/sonner";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { Lang } from "@iroy/i18n/config";
-import DictionariesStore from "@/components/dictionaries-store";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 import "@/styles/index.css";
 
 type RootLayoutProps = LayoutProps<"/[lang]">;
@@ -76,10 +76,10 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const resolvedParams = await params;
-  const lang = resolvedParams.lang as Lang;
+  const locale = await getLocale();
+
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -100,8 +100,7 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          {children}
-          <DictionariesStore lang={lang} />
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
           <Toaster />
           <TailwindIndicator />
         </ThemeProvider>

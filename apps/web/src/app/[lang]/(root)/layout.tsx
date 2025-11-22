@@ -8,15 +8,22 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@iroy/ui/components/sidebar";
+import { Locale } from "next-intl";
 import { cookies } from "next/headers";
 import { Suspense } from "react";
 
 type AppLayoutProps = LayoutProps<"/[lang]">;
 
 export default async function AppLayout({ children, params }: AppLayoutProps) {
-  await params;
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+
+  async function changeLocaleAction(locale: Locale) {
+    "use server";
+    const store = await cookies();
+    store.set("locale", locale);
+  }
+
   return (
     <Suspense fallback={<p>Loading content...</p>}>
       <SidebarProvider defaultOpen={defaultOpen}>
@@ -31,7 +38,7 @@ export default async function AppLayout({ children, params }: AppLayoutProps) {
               />
               <NavHeader />
               <div className="ml-auto flex items-center gap-2">
-                <LocaleSwitcher />
+                <LocaleSwitcher changeLocaleAction={changeLocaleAction} />
                 <ModeSwitcher />
               </div>
             </div>

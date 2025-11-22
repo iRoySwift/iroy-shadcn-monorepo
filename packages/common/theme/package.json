@@ -20,6 +20,7 @@
     "tailwindcss-animate": "catalog:"
   },
   "dependencies": {
-    "next-themes": "catalog:"
+    "next-themes": "catalog:",
+    "next-intl": "catalog:"
   }
 }
