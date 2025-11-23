@@ -8,9 +8,11 @@
     "demo": "演示",
     "platform": "平台",
     "search": "搜索",
-    "zh": "中文",
-    "en": "英语",
     "toggle_theme": "切换主题",
     "home": "主页"
+  },
+  "LocaleSwitcher": {
+    "label": "切换语言",
+    "locale": "{locale, select, zh {中文} en {英语} other {未知}}"
   }
 }

@@ -1,4 +1,15 @@
 {
+  "LoginPage": {
+    "username": "Username",
+    "password": "Password",
+    "submit": "Login",
+    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}",
+    "loggedIn": "Logged in as {username}",
+    "loggedOut": "You are logged out.",
+    "login": "Login",
+    "logout": "Logout",
+    "secret": "Secret page for logged in users"
+  },
   "HomePage": {
     "description": "This is the home page.",
     "home": "Home",

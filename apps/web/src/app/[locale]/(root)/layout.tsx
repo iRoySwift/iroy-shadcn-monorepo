@@ -8,25 +8,30 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@iroy/ui/components/sidebar";
-import { Locale } from "next-intl";
-import { cookies } from "next/headers";
 import { Suspense } from "react";
+import ClientSidebarHydrator from "@/components/client-sidebar-hydrator";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 
-type AppLayoutProps = LayoutProps<"/[lang]">;
+type AppLayoutProps = LayoutProps<"/[locale]">;
 
 export default async function AppLayout({ children, params }: AppLayoutProps) {
-  const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
-
-  async function changeLocaleAction(locale: Locale) {
-    "use server";
-    const store = await cookies();
-    store.set("locale", locale);
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
   }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  const defaultOpen = false;
 
   return (
     <Suspense fallback={<p>Loading content...</p>}>
       <SidebarProvider defaultOpen={defaultOpen}>
+        <ClientSidebarHydrator />
         <AppSidebar />
         <SidebarInset>
           <header className="bg-background sticky inset-x-0 top-0 isolate z-10 flex shrink-0 items-center gap-2 border-b">
@@ -38,7 +43,7 @@ export default async function AppLayout({ children, params }: AppLayoutProps) {
               />
               <NavHeader />
               <div className="ml-auto flex items-center gap-2">
-                <LocaleSwitcher changeLocaleAction={changeLocaleAction} />
+                <LocaleSwitcher />
                 <ModeSwitcher />
               </div>
             </div>

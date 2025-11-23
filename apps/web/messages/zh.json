@@ -1,4 +1,15 @@
 {
+  "LoginPage": {
+    "username": "用户名",
+    "password": "密码",
+    "submit": "登录",
+    "error": "{error, select, CredentialsSignin {用户名或密码无效} other {未知错误}}",
+    "loggedIn": "已登录为 {username}",
+    "loggedOut": "您已登出。",
+    "login": "登录",
+    "logout": "登出",
+    "secret": "仅限登录用户的秘密页面"
+  },
   "HomePage": {
     "description": "这是主页。",
     "home": "主页",

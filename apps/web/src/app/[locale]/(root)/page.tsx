@@ -27,7 +27,7 @@ const PageHeaderHeading = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]",
+      "text-3xl leading-tight font-bold tracking-tighter md:text-4xl lg:leading-[1.1]",
       className
     )}
     {...props}>
@@ -59,6 +59,7 @@ const PageActions = ({
 
 const Home: React.FC = async () => {
   const t = await getTranslations("HomePage");
+
   return (
     <>
       <PageHeader>

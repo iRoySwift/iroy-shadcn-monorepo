@@ -28,6 +28,7 @@ import {
   Bell,
   LogOut,
 } from "@iroy/ui/icons";
+import { signOut } from "next-auth/react";
 
 export function NavUser({
   user,
@@ -39,6 +40,10 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
+
+  function onLogoutClick() {
+    signOut();
+  }
 
   return (
     <SidebarMenu>
@@ -99,7 +104,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={onLogoutClick}>
               <LogOut />
               Log out
             </DropdownMenuItem>

@@ -32,8 +32,9 @@ import {
 import { Label } from "@iroy/ui/components/label";
 import { TeamSwitcher } from "./team-switcher";
 import { NavUser } from "./nav-user";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { useSession } from "next-auth/react";
 
 type LocaleKey = string;
 
@@ -121,6 +122,9 @@ type Props = ComponentProps<typeof Sidebar>;
 
 export function AppSidebar(props: Props) {
   const t = useTranslations();
+  const { data: session, status } = useSession();
+
+  data.user.name = session?.user?.name || "Guest";
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -137,7 +141,7 @@ export function AppSidebar(props: Props) {
                 placeholder={t("HomePage.search_the_docs")}
                 className="pl-8"
               />
-              <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
+              <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
             </form>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -158,7 +162,7 @@ export function AppSidebar(props: Props) {
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton tooltip={item.title}>
                           {item.icon && <item.icon />}
-                          <span>{t(item.key)}</span>
+                          <span>{t(item.key as any)}</span>
                           <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
@@ -168,7 +172,7 @@ export function AppSidebar(props: Props) {
                             <SidebarMenuSubItem key={subItem.key}>
                               <SidebarMenuSubButton asChild>
                                 <Link href={subItem.url}>
-                                  <span>{t(subItem.key)}</span>
+                                  <span>{t(subItem.key as any)}</span>
                                 </Link>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
@@ -182,7 +186,7 @@ export function AppSidebar(props: Props) {
                     <SidebarMenuButton asChild>
                       <Link href={item.url}>
                         {item.icon && <item.icon />}
-                        <span>{t(item.key)}</span>
+                        <span>{t(item.key as any)}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

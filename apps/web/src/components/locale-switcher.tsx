@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@iroy/ui/components/button";
-import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,43 +9,55 @@ import {
 } from "@iroy/ui/components/dropdown-menu";
 import { Globe } from "@iroy/ui/icons";
 import type { FC } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { Locale, useTranslations } from "next-intl";
 import { Label } from "@iroy/ui/components/label";
-import React from "react";
+import React, { useTransition } from "react";
+import { routing } from "@/i18n/routing";
+import { useParams } from "next/navigation";
+import clsx from "clsx";
 
-type Props = {
-  changeLocaleAction: (locale: Locale) => Promise<void>;
-};
-
-const LocaleSwitcher: FC<Props> = ({ changeLocaleAction }) => {
-  const t = useTranslations("Common");
+const LocaleSwitcher: FC = () => {
+  const t = useTranslations("LocaleSwitcher");
   const pathname = usePathname();
   const router = useRouter();
+  const params = useParams();
+  const [isPending, startTransition] = useTransition();
 
-
-  const toLocalePage = async (locale: Locale) => {
-    console.log("🚀 ~ toLocalePage ~ locale:", locale);
-    const newPath = `/${locale}/${pathname.split("/").slice(2).join("/")}`;
-    router.push(newPath);
-    await changeLocaleAction(locale);
-  };
+  function onSelectChange(locale: Locale) {
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        { pathname, params },
+        { locale }
+      );
+    });
+  }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="group/toggle h-8 w-8 px-0">
+        <Button
+          variant="ghost"
+          disabled={isPending}
+          className={clsx(
+            "group/toggle h-8 w-8 px-0",
+            isPending && "transition-opacity [&:disabled]:opacity-30"
+          )}>
           <Globe />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <Label onClick={() => toLocalePage("en")}>{t("en")}</Label>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Label onClick={() => toLocalePage("zh")}>{t("zh")}</Label>
-          </DropdownMenuItem>
+          {routing.locales.map(locale => (
+            <DropdownMenuItem key={locale}>
+              <Label onClick={() => onSelectChange(locale)}>
+                {t(`locale`, { locale })}
+              </Label>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -6,6 +6,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "exports": {
+    "./en.json": "./src/messages/en.json",
+    "./zh.json": "./src/messages/zh.json"
+  },
   "dependencies": {
     "next-intl": "catalog:"
   }

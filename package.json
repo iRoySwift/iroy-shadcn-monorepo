@@ -6,6 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "prepare": "husky install",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check": "pnpm --filter @iroy/web exec tsc --noEmit",
@@ -16,6 +17,8 @@
     "@iroy/eslint": "workspace:^",
     "@iroy/typescript": "workspace:^",
     "@types/node": "catalog:",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "catalog:",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "turbo": "catalog:",
@@ -26,13 +29,21 @@
     "node": ">=20"
   },
   "dependencies": {
+    "@iroy/hooks": "workspace:^",
     "@iroy/i18n": "workspace:^",
     "@iroy/theme": "workspace:^",
-    "@iroy/utils": "workspace:^",
-    "@iroy/hooks": "workspace:^",
     "@iroy/ui": "workspace:^",
+    "@iroy/utils": "workspace:^",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "zustand": "catalog:"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{css,md,json,mdx}": [
+      "prettier --write"
+    ]
   }
 }

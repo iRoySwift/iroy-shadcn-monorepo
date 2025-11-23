@@ -8,9 +8,11 @@
     "demo": "Demo",
     "platform": "Platform",
     "search": "Search",
-    "zh": "Chinese",
-    "en": "English",
     "toggle_theme": "Toggle theme",
     "home": "Home"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, zh {Chinese} en {English} other {Unknown}}"
   }
 }
