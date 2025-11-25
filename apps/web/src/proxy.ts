@@ -21,8 +21,7 @@ const authMiddleware = withAuth(
       // We inject minimal user info into the JWT (token.user) in `auth.ts`'s jwt callback.
       // Check specifically for `token.user` (or `token.role`) instead of any token truthiness.
       authorized: ({ token }) => {
-        console.log("🚀 ~ authorized token:", token);
-        return Boolean((token as any)?.user);
+        return Boolean((token as { user?: unknown }).user);
       },
     },
     pages: {
@@ -32,7 +31,6 @@ const authMiddleware = withAuth(
 );
 
 export default function middleware(req: NextRequest) {
-  console.log("🚀 ~ middleware ~ req:");
   const publicPathnameRegex = RegExp(
     `^(/(${routing.locales.join("|")}))?(${publicPages
       .flatMap(p => (p === "/" ? ["", "/"] : p))

@@ -34,16 +34,18 @@
     "@iroy/theme": "workspace:^",
     "@iroy/ui": "workspace:^",
     "@iroy/utils": "workspace:^",
+    "@iroy/eslint": "workspace:^",
+    "@iroy/typescript": "workspace:^",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "zustand": "catalog:"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write"
+      "pnpm exec eslint --max-warnings=0"
     ],
     "*.{css,md,json,mdx}": [
-      "prettier --write"
+      "pnpm exec prettier --check"
     ]
   }
 }

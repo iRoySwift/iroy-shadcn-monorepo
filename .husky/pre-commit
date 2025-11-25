@@ -1,5 +1,1 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-# 执行 lint-staged（使用 pnpm exec 调用已安装的 lint-staged）
-pnpm exec -- lint-staged
+pnpm exec lint-staged

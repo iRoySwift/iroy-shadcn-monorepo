@@ -4,9 +4,15 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./next": "./next.ts"
+    "./base": "./base.js",
+    "./next-js": "./next.js",
+    "./react-internal": "./react-internal.js"
   },
   "devDependencies": {
+    "eslint-plugin-only-warn": "catalog:",
+    "eslint-plugin-turbo": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-config-prettier": "catalog:",
     "@eslint/eslintrc": "catalog:",
     "eslint": "catalog:",
     "eslint-config-next": "catalog:"

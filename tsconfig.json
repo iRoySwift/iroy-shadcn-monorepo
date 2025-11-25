@@ -1,3 +1,9 @@
 {
-  "extends": "@iroy/typescript/base"
+  "extends": "@iroy/typescript/base",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": ["apps/**/*", "packages/**/*", "eslint.config.js"],
+  "exclude": ["node_modules", ".turbo", "dist"]
 }

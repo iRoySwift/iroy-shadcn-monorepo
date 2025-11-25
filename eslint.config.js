@@ -1,23 +1,18 @@
 // This configuration only applies to the package manager root.
 /** @type {import("eslint").Linter.Config} */
+import { defineConfig } from "eslint/config";
+import tsParser from "@typescript-eslint/parser";
+import { config } from "@iroy/eslint/base";
 
-import { FlatCompat } from "@eslint/eslintrc";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({ baseDirectory: __dirname });
-
-export default [
-  ...compat.extends("@iroy/eslint/next"),
+export default defineConfig([
+  config,
   {
     ignores: ["apps/**", "packages/**"],
-    // extends: ["@iroy/eslint/next"],
-    parser: "@typescript-eslint/parser",
-    parserOptions: {
-      project: true,
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: true,
+      },
     },
   },
-];
+]);
