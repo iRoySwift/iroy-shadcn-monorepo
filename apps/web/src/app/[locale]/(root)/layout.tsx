@@ -26,7 +26,7 @@ export default async function AppLayout({ children, params }: AppLayoutProps) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const defaultOpen = false;
+  const defaultOpen = true;
 
   return (
     <Suspense fallback={<p>Loading content...</p>}>

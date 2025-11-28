@@ -1,6 +1,6 @@
 {
   "name": "@iroy/eslint",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "private": true,
   "exports": {
@@ -9,12 +9,12 @@
     "./react-internal": "./react-internal.js"
   },
   "devDependencies": {
-    "eslint-plugin-only-warn": "catalog:",
-    "eslint-plugin-turbo": "catalog:",
-    "eslint-plugin-prettier": "catalog:",
-    "eslint-config-prettier": "catalog:",
     "@eslint/eslintrc": "catalog:",
     "eslint": "catalog:",
-    "eslint-config-next": "catalog:"
+    "eslint-config-next": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-only-warn": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-turbo": "catalog:"
   }
 }

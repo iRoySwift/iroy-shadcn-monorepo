@@ -9,24 +9,20 @@
     "prepare": "husky install",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check": "pnpm --filter @iroy/web exec tsc --noEmit",
-    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
-    "mcp:next-devtools": "npx -y next-devtools-mcp@latest"
+    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules"
   },
   "devDependencies": {
     "@iroy/eslint": "workspace:^",
     "@iroy/typescript": "workspace:^",
     "@types/node": "catalog:",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
     "prettier": "catalog:",
-    "prettier-plugin-tailwindcss": "^0.7.1",
+    "prettier-plugin-tailwindcss": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"
-  },
-  "packageManager": "pnpm@9.12.3",
-  "engines": {
-    "node": ">=20"
   },
   "dependencies": {
     "@iroy/hooks": "workspace:^",
@@ -34,11 +30,11 @@
     "@iroy/theme": "workspace:^",
     "@iroy/ui": "workspace:^",
     "@iroy/utils": "workspace:^",
-    "@iroy/eslint": "workspace:^",
-    "@iroy/typescript": "workspace:^",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
     "zustand": "catalog:"
+  },
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=20"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

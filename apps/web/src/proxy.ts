@@ -21,7 +21,7 @@ const authMiddleware = withAuth(
       // We inject minimal user info into the JWT (token.user) in `auth.ts`'s jwt callback.
       // Check specifically for `token.user` (or `token.role`) instead of any token truthiness.
       authorized: ({ token }) => {
-        return Boolean((token as { user?: unknown }).user);
+        return Boolean((token as { user?: unknown })?.user);
       },
     },
     pages: {
