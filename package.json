@@ -41,7 +41,7 @@
       "pnpm exec eslint --max-warnings=0"
     ],
     "*.{css,md,json,mdx}": [
-      "pnpm exec prettier --check"
+      "pnpm exec prettier --write"
     ]
   }
 }
